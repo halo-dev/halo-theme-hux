@@ -111,11 +111,11 @@
 -->
 <!--
     <script>
-        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+        async("//cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
             hljs.initHighlightingOnLoad();
         })
     </script>
-    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
 -->
 <!-- jquery.tagcloud.js -->
 <script>
@@ -132,7 +132,7 @@
 </script>
 <!--fastClick.js -->
 <script>
-    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
         var $nav = document.querySelector("nav");
         if ($nav) FastClick.attach($nav);
     })
@@ -180,7 +180,7 @@ ${options.statistics_code?if_exists}
          * Doc: https://github.com/davist11/jQuery-One-Page-Nav
          * Fork by Hux to support padding
          */
-        async("{{ '/hux/source/js/jquery.nav.js' | prepend: site.baseurl }}", function () {
+        async("/hux/source/js/jquery.nav.js", function () {
             $('.catalog-body').onePageNav({
                 currentClass: "active",
                 changeHash: !1,
