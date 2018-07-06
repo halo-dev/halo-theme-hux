@@ -1,5 +1,5 @@
 <#include "module/page.ftl">
-<@page title="${options.blog_title}" keywords="xx" description="xx" slogn="${options.hux_general_index_slogn?if_exists}" cover="${options.hux_general_index_cover?default('/hux/source/img/home-bg.jpg')}">
+<@page title="${options.blog_title}" keywords="${options.seo_keywords?if_exists}" description="${options.seo_desc?if_exists}" slogn="${options.hux_general_index_slogn?if_exists}" cover="${options.hux_general_index_cover?default('/hux/source/img/home-bg.jpg')}">
     <#list posts.content as post>
 <div class="post-preview">
     <a href="/archives/${post.postUrl}">

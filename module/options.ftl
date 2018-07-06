@@ -235,15 +235,15 @@
                         <div class="box box-widget widget-user-2">
                             <div class="widget-user-header bg-blue">
                                 <div class="widget-user-image">
-                                    <img class="img-circle" src="/anatole/source/images/logo@2x.png" alt="User Avatar">
+                                    <img class="img-circle" src="/hux/source/img/icon_wechat.png" alt="User Avatar">
                                 </div>
-                                <h3 class="widget-user-username">CAICAI</h3>
-                                <h5 class="widget-user-desc">A other farbox theme</h5>
+                                <h3 class="widget-user-username">Xuan Huang</h3>
+                                <h5 class="widget-user-desc">A Jekyll Themes</h5>
                             </div>
                             <div class="box-footer no-padding">
                                 <ul class="nav nav-stacked">
-                                    <li><a target="_blank" href="https://www.caicai.me/">作者主页</a></li>
-                                    <li><a target="_blank" href="https://github.com/hi-caicai/farbox-theme-Anatole">原主题地址</a>
+                                    <li><a target="_blank" href="https://huangxuan.me/">作者主页</a></li>
+                                    <li><a target="_blank" href="https://github.com/Huxpro/huxpro.github.io">原主题地址</a>
                                     </li>
                                 </ul>
                             </div>
