@@ -8,7 +8,13 @@
 
 原主题地址：[https://github.com/Huxpro/huxpro.github.io](https://github.com/Huxpro/huxpro.github.io)
 
-## 预览
+## 预览截图
+
+![](screenshots/index.png)
+
+![](screenshots/option1.png)
+
+## 预览地址
 
 [Hux Blog](https://huangxuan.me/)
 
