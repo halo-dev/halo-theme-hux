@@ -24,5 +24,7 @@
 
 ## 使用方法
 
-克隆或者[下载](https://github.com/ruibaby/hux-halo/releases)，将文件夹名改为`hux`，压缩为zip压缩包之后在后台的主题设置直接上传即可使用。
+1. 克隆或者[下载](https://github.com/ruibaby/hux-halo/releases)。
+2. 将文件夹名改为`hux`，将文件夹名改为`hux`，将文件夹名改为`hux`！！！
+3. 压缩为zip压缩包之后在后台的主题设置直接上传即可使用。
 
