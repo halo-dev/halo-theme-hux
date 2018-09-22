@@ -1,7 +1,7 @@
 <#include "module/default.ftl">
 <@default title="标签 - ${options.blog_title}" keywords="${options.seo_keywords?if_exists}" description="${options.seo_desc?if_exists}">
 <!-- Page Header -->
-<header class="intro-header" style="background-image: url('${options.hux_general_tags_cover?default("/hux/source/img/tag-bg.jpg")}"')">
+<header class="intro-header" style="background-image: url('${options.hux_general_tags_cover?default("/${themeName}/source/img/tag-bg.jpg")}"')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">

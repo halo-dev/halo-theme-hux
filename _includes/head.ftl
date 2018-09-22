@@ -11,13 +11,13 @@
     <title>${title}</title>
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/hux/source/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/${themeName}/source/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/hux/source/css/hux-blog.min.css">
+    <link rel="stylesheet" href="/${themeName}/source/css/hux-blog.min.css">
 
     <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="/hux/source/css/syntax.css">
+    <link rel="stylesheet" href="/${themeName}/source/css/syntax.css">
 
     <!-- Custom Fonts -->
     <!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->

@@ -77,14 +77,14 @@
     </div>
 </footer>
 <!-- jQuery -->
-<script src="/hux/source/js/jquery.min.js"></script>
+<script src="/${themeName}/source/js/jquery.min.js"></script>
 <!-- Bootstrap Core JavaScript -->
-<script src="/hux/source/js/bootstrap.min.js"></script>
+<script src="/${themeName}/source/js/bootstrap.min.js"></script>
 <!-- Custom Theme JavaScript -->
-<script src="/hux/source/js/hux-blog.min.js"></script>
+<script src="/${themeName}/source/js/hux-blog.min.js"></script>
 <!-- Service Worker -->
-<script src="/hux/source/js/snackbar.js"></script>
-<script src="/hux/source/js/sw-registration.js"></script>
+<script src="/${themeName}/source/js/snackbar.js"></script>
+<script src="/${themeName}/source/js/sw-registration.js"></script>
 <!-- async load function -->
 <script>
     function async(u, c) {
@@ -100,14 +100,14 @@
         s.parentNode.insertBefore(o, s);
     }
 </script>
-<!-- 
-     Because of the native support for backtick-style fenced code blocks 
-     right within the Markdown is landed in Github Pages, 
-     From V1.6, There is no need for Highlight.js, 
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
      so Huxblog drops it officially.
 
-     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
-     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
 -->
 <!--
     <script>
@@ -121,7 +121,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if ($('#tag_cloud').length !== 0) {
-        async("/hux/source/js/jquery.tagcloud.js", function () {
+        async("/${themeName}/source/js/jquery.tagcloud.js", function () {
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
@@ -180,7 +180,7 @@ ${options.statistics_code?if_exists}
          * Doc: https://github.com/davist11/jQuery-One-Page-Nav
          * Fork by Hux to support padding
          */
-        async("/hux/source/js/jquery.nav.js", function () {
+        async("/${themeName}/source/js/jquery.nav.js", function () {
             $('.catalog-body').onePageNav({
                 currentClass: "active",
                 changeHash: !1,
