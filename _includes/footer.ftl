@@ -70,7 +70,8 @@
                     Copyright &copy; ${options.blog_title} ${options.blog_start?substring(0,4)}
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a> |
-                    Published with <a href="https://github.com/ruibaby/halo" target="_blank">Halo</a>
+                    Published with <a href="https://github.com/ruibaby/halo" target="_blank">Halo</a><br>
+                    <@footer_info></@footer_info>
                 </p>
             </div>
         </div>
@@ -109,14 +110,12 @@
      - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
      - https://help.github.com/articles/creating-and-highlighting-code-blocks/
 -->
-<!--
-    <script>
-        async("//cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
-            hljs.initHighlightingOnLoad();
-        })
-    </script>
-    <link href="//cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
--->
+<script>
+    async("//cdnjs.loli.net/ajax/libs/highlight.js/8.6/highlight.min.js", function(){
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+<link href="//cdnjs.loli.net/ajax/libs/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
 <!-- jquery.tagcloud.js -->
 <script>
     // only load tagcloud.js in tag.html
@@ -132,14 +131,14 @@
 </script>
 <!--fastClick.js -->
 <script>
-    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+    async("//cdnjs.loli.net/ajax/libs/fastclick/1.0.6/fastclick.min.js", function () {
         var $nav = document.querySelector("nav");
         if ($nav) FastClick.attach($nav);
     })
 </script>
 
 <!-- Tongji -->
-${options.statistics_code?if_exists}
+<@statistics></@statistics>
 
 <#if post??>
     <script type="text/javascript">

@@ -1,9 +1,10 @@
+<#include "/common/macro/common_macro.ftl">
 <#macro default title="" keywords="" description="">
 <!DOCTYPE html>
 <html lang="zh-CN">
 
     <#include "../_includes/head.ftl">
-<@head title="${title}" keywords="${keywords}" description="${description}"></@head>
+    <@head title="${title}" keywords="${keywords}" description="${description}"></@head>
 
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="">

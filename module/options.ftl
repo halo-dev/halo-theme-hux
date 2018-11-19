@@ -27,20 +27,6 @@
                         <form method="post" class="form-horizontal" id="huxGeneralOptions">
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label for="huxGeneralFavicon" class="col-sm-4 control-label">Favicon：</label>
-                                    <div class="col-sm-8">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" id="huxGeneralFavicon"
-                                                   name="hux_general_favicon"
-                                                   value="${options.hux_general_favicon?if_exists}">
-                                            <span class="input-group-btn">
-                                                <button class="btn btn-default btn-flat" type="button"
-                                                        onclick="openAttach('huxGeneralFavicon')">选择</button>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
                                     <label for="huxGeneralIndexSlogn" class="col-sm-4 control-label">首页描述：</label>
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control" id="huxGeneralIndexSlogn"
