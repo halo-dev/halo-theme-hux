@@ -41,7 +41,7 @@
                         <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                         </li> -->
                         <div class="post-preview">
-                            <a href="/archives/${post.postUrl}">
+                            <a href="${options.blog_url!}/archives/${post.postUrl}">
                                 <h2 class="post-title">
                                     ${post.postTitle}
                                 </h2>

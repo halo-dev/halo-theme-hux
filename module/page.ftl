@@ -35,12 +35,12 @@
                 <#if options.hux_style_sidebar_tags?default("true") == "true">
                 <section>
                     <!-- no hr -->
-                    <h5><a href="/tags">FEATURED TAGS</a></h5>
+                    <h5><a href="${options.blog_url!}/tags">FEATURED TAGS</a></h5>
                     <div class="tags">
                         <@commonTag method="tags">
                             <#if tags?? && tags?size gt 0>
                                 <#list tags as tag>
-                                    <a href="/tags/#${tag.tagUrl}" title="${tag.tagName}" rel="">
+                                    <a href="${options.blog_url!}/tags/#${tag.tagUrl}" title="${tag.tagName}" rel="">
                                         ${tag.tagName}
                                     </a>
                                 </#list>
@@ -93,12 +93,12 @@
                 <#if options.hux_style_sidebar_tags?default("true") == "true">
                 <section>
                     <hr class="hidden-sm hidden-xs">
-                    <h5><a href="/tags">FEATURED TAGS</a></h5>
+                    <h5><a href="${options.blog_url!}/tags">FEATURED TAGS</a></h5>
                     <div class="tags">
                         <@commonTag method="tags">
                             <#if tags?? && tags?size gt 0>
                                 <#list tags as tag>
-                                <a href="/tags/#${tag.tagUrl}" title="${tag.tagName}" rel="">
+                                <a href="${options.blog_url!}/tags/#${tag.tagUrl}" title="${tag.tagName}" rel="">
                                     ${tag.tagName}
                                 </a>
                                 </#list>
@@ -111,7 +111,7 @@
                 <!-- Short About -->
                 <section class="visible-md visible-lg">
                     <hr>
-                    <h5><a href="/p/about">ABOUT ME</a></h5>
+                    <h5><a href="${options.blog_url!}/p/about">ABOUT ME</a></h5>
                     <div class="short-about">
                         <img src="${user.userAvatar?if_exists}"/>
                         <p>${user.userDesc?if_exists}</p>
@@ -119,7 +119,7 @@
                         <ul class="list-inline">
                             <#if options.hux_sns_rss?default("true")=="true">
                             <li>
-                                <a href="/feed.xml">
+                                <a href="${options.blog_url!}/feed.xml">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa fa-rss fa-stack-1x fa-inverse"></i>

@@ -19,7 +19,7 @@
                     <div class="tags">
                         <#if post.tags?? && post.tags?size gt 0>
                             <#list post.tags as tag>
-                                <a class="tag" href="/tags/#${tag.tagUrl}" title="${tag.tagName}">${tag.tagName}</a>
+                                <a class="tag" href="${options.blog_url!}/tags/#${tag.tagUrl}" title="${tag.tagName}">${tag.tagName}</a>
                             </#list>
                         </#if>
                     </div>
@@ -52,13 +52,13 @@
                 <ul class="pager">
                     <#if afterPost??>
                         <li class="previous">
-                            <a href="/archives/${afterPost.postUrl}" data-toggle="tooltip" data-placement="top"
+                            <a href="${options.blog_url!}/archives/${afterPost.postUrl}" data-toggle="tooltip" data-placement="top"
                                title="${afterPost.postTitle}">&larr; Previous Post</a>
                         </li>
                     </#if>
                     <#if beforePost??>
                     <li class="next">
-                        <a href="/archives/${beforePost.postUrl}" data-toggle="tooltip" data-placement="top"
+                        <a href="${options.blog_url!}/archives/${beforePost.postUrl}" data-toggle="tooltip" data-placement="top"
                            title="${beforePost.postTitle}">Next Post &rarr;</a>
                     </li>
                     </#if>
@@ -91,12 +91,12 @@
                 <#if options.hux_style_sidebar_tags?default("true") == "true">
                       <section>
                           <hr class="hidden-sm hidden-xs">
-                          <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                          <h5><a href="${options.blog_url!}/tags/">FEATURED TAGS</a></h5>
                           <div class="tags">
                               <@commonTag method="tags">
                                   <#if tags?? && tags?size gt 0>
                                       <#list tags as tag>
-                                        <a href="/tags/#${tag.tagUrl}" title="${tag.tagName}" rel="">
+                                        <a href="${options.blog_url!}/tags/#${tag.tagUrl}" title="${tag.tagName}" rel="">
                                             ${tag.tagName}
                                         </a>
                                       </#list>

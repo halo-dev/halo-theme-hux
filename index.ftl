@@ -2,7 +2,7 @@
 <@page title="${options.blog_title}" keywords="${options.seo_keywords?if_exists}" description="${options.seo_desc?if_exists}" slogn="${options.hux_general_index_slogn?if_exists}" cover="${options.hux_general_index_cover?default('/${themeName}/source/img/home-bg.jpg')}">
     <#list posts.content as post>
 <div class="post-preview">
-    <a href="/archives/${post.postUrl}">
+    <a href="${options.blog_url!}/archives/${post.postUrl}">
         <h2 class="post-title">
             ${post.postTitle}
         </h2>
@@ -26,15 +26,15 @@
     <#if posts.hasPrevious()>
     <li class="previous">
         <#if posts.number ==1>
-            <a href="/">&larr; Newer Posts</a>
+            <a href="${options.blog_url!}/">&larr; Newer Posts</a>
         <#else>
-            <a href="/page/${posts.number}">&larr; Newer Posts</a>
+            <a href="${options.blog_url!}/page/${posts.number}">&larr; Newer Posts</a>
         </#if>
     </li>
     </#if>
     <#if posts.hasNext()>
     <li class="next">
-        <a href="/page/${posts.number+2}">Older Posts &rarr;</a>
+        <a href="${options.blog_url!}/page/${posts.number+2}">Older Posts &rarr;</a>
     </li>
     </#if>
 </ul>

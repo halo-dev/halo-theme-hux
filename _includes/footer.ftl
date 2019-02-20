@@ -6,7 +6,7 @@
                 <ul class="list-inline text-center">
                     <#if options.hux_sns_rss?default("true")=="true">
                     <li>
-                        <a href="/feed.xml">
+                        <a href="${options.blog_url!}/feed.xml">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
