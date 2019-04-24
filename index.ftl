@@ -1,10 +1,10 @@
 <#include "module/page.ftl">
-<@page title="${options.blog_title}" keywords="${options.seo_keywords?if_exists}" description="${options.seo_desc?if_exists}" slogn="${options.hux_general_index_slogn?if_exists}" cover="${options.hux_general_index_cover?default('/${themeName}/source/img/home-bg.jpg')}">
+<@page title="${options.blog_title}" keywords="${options.seo_keywords!}" description="${options.seo_description!}" slogn="${options.hux_general_index_slogn!}" cover="${options.hux_general_index_cover?default('/${theme.folderName}/source/img/home-bg.jpg')}">
     <#list posts.content as post>
 <div class="post-preview">
-    <a href="${options.blog_url!}/archives/${post.postUrl}">
+    <a href="${options.blog_url!}/archives/${post.url!}">
         <h2 class="post-title">
-            ${post.postTitle}
+            ${post.title!}
         </h2>
     <#--{% if post.subtitle %}-->
     <#--<h3 class="post-subtitle">-->
@@ -12,11 +12,11 @@
     <#--</h3>-->
     <#--{% endif %}-->
         <div class="post-content-preview">
-            ${post.postSummary}
+            ${post.summary}
         </div>
     </a>
     <p class="post-meta">
-        Posted by ${user.userDisplayName?if_exists} on ${post.postDate?string("MM-dd，yyyy")}
+        Posted by ${user.userDisplayName!} on ${post.createTime?string("MM-dd，yyyy")}
     </p>
 </div>
 <hr>

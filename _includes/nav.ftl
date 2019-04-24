@@ -9,20 +9,20 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="${options.blog_url}/">${options.blog_title?if_exists}</a>
+            <a class="navbar-brand" href="${options.blog_url}/">${options.blog_title!}</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div id="huxblog_navbar">
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <@commonTag method="menus">
-                        <#list menus?sort_by("menuSort") as menu>
+                    <@menuTag method="list">
+                        <#list menus?sort_by("sort") as menu>
                             <li>
-                                <a href="${menu.menuUrl}">${menu.menuName}</a>
+                                <a href="${menu.url}">${menu.name}</a>
                             </li>
                         </#list>
-                    </@commonTag>
+                    </@menuTag>
                 </ul>
             </div>
         </div>

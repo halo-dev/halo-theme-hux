@@ -1,5 +1,5 @@
 <#include "module/default.ftl">
-<@default title="${post.postTitle} - ${options.blog_title?if_exists}" keywords="${options.seo_keywords?if_exists}" description="${post.postSummary?if_exists}">
+<@default title="${post.postTitle} - ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${post.postSummary!}">
 <!-- Image to hack wechat -->
 <!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
 <!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
@@ -8,7 +8,7 @@
 <style type="text/css">
     header.intro-header {
         position: relative;
-        background-image: url("${post.postThumbnail?default('${options.hux_general_index_cover?if_exists}')}")
+        background-image: url("${post.postThumbnail?default('${options.hux_general_index_cover!}')}")
     }
 </style>
 <header class="intro-header">

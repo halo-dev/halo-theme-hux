@@ -113,8 +113,8 @@
                     <hr>
                     <h5><a href="${options.blog_url!}/p/about">ABOUT ME</a></h5>
                     <div class="short-about">
-                        <img src="${user.userAvatar?if_exists}"/>
-                        <p>${user.userDesc?if_exists}</p>
+                        <img src="${user.userAvatar!}"/>
+                        <p>${user.userDesc!}</p>
                         <!-- SNS Link -->
                         <ul class="list-inline">
                             <#if options.hux_sns_rss?default("true")=="true">

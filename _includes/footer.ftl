@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <ul class="list-inline text-center">
-                    <#if options.hux_sns_rss?default("true")=="true">
+                    <#if settings.sns_rss!true>
                     <li>
                         <a href="${options.blog_url!}/feed.xml">
                             <span class="fa-stack fa-lg">
@@ -14,9 +14,9 @@
                         </a>
                     </li>
                     </#if>
-                    <#if options.hux_sns_twitter??>
+                    <#if settings.sns_twitter??>
                     <li>
-                        <a href="https://twitter.com/${options.hux_sns_twitter}">
+                        <a href="https://twitter.com/${settings.sns_twitter}">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -25,9 +25,9 @@
                     </li>
                     </#if>
                     <!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
-                    <#if options.hux_sns_zhihu??>
+                    <#if settings.sns_zhihu??>
                     <li>
-                        <a target="_blank" href="https://www.zhihu.com/people/${options.hux_sns_zhihu}">
+                        <a target="_blank" href="https://www.zhihu.com/people/${settings.sns_zhihu}">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa  fa-stack-1x fa-inverse">知</i>
@@ -35,9 +35,9 @@
                         </a>
                     </li>
                     </#if>
-                    <#if options.hux_sns_weibo??>
+                    <#if settings.sns_weibo??>
                     <li>
-                        <a target="_blank" href="http://weibo.com/${options.hux_sns_weibo}">
+                        <a target="_blank" href="http://weibo.com/${settings.sns_weibo}">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
@@ -45,9 +45,9 @@
                         </a>
                     </li>
                     </#if>
-                    <#if options.hux_sns_facebook??>
+                    <#if settings.sns_facebook??>
                     <li>
-                        <a target="_blank" href="https://www.facebook.com/${options.hux_sns_facebook}">
+                        <a target="_blank" href="https://www.facebook.com/${settings.sns_facebook}">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
@@ -55,9 +55,9 @@
                         </a>
                     </li>
                     </#if>
-                    <#if options.hux_sns_github??>
+                    <#if settings.sns_github??>
                     <li>
-                        <a target="_blank" href="https://github.com/${options.hux_sns_github}">
+                        <a target="_blank" href="https://github.com/${settings.sns_github}">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -78,14 +78,14 @@
     </div>
 </footer>
 <!-- jQuery -->
-<script src="/${themeName}/source/js/jquery.min.js"></script>
+<script src="/${theme.folderName}/source/js/jquery.min.js"></script>
 <!-- Bootstrap Core JavaScript -->
-<script src="/${themeName}/source/js/bootstrap.min.js"></script>
+<script src="/${theme.folderName}/source/js/bootstrap.min.js"></script>
 <!-- Custom Theme JavaScript -->
-<script src="/${themeName}/source/js/hux-blog.min.js"></script>
+<script src="/${theme.folderName}/source/js/hux-blog.min.js"></script>
 <!-- Service Worker -->
-<script src="/${themeName}/source/js/snackbar.js"></script>
-<script src="/${themeName}/source/js/sw-registration.js"></script>
+<script src="/${theme.folderName}/source/js/snackbar.js"></script>
+<script src="/${theme.folderName}/source/js/sw-registration.js"></script>
 <!-- async load function -->
 <script>
     function async(u, c) {
@@ -120,7 +120,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if ($('#tag_cloud').length !== 0) {
-        async("/${themeName}/source/js/jquery.tagcloud.js", function () {
+        async("/${theme.folderName}/source/js/jquery.tagcloud.js", function () {
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
@@ -179,7 +179,7 @@
          * Doc: https://github.com/davist11/jQuery-One-Page-Nav
          * Fork by Hux to support padding
          */
-        async("/${themeName}/source/js/jquery.nav.js", function () {
+        async("/${theme.folderName}/source/js/jquery.nav.js", function () {
             $('.catalog-body').onePageNav({
                 currentClass: "active",
                 changeHash: !1,
