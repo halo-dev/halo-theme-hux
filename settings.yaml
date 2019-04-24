@@ -1,0 +1,100 @@
+general:
+  label: 基础设置
+  items:
+    index_slogn:
+      name: index_slogn
+      label: 首页描述
+      type: text
+
+    tags_slogn:
+      name: tags_slogn
+      label: 标签页描述
+      type: text
+
+    index_cover:
+      name: index_cover
+      label: 首页顶部图
+      type: text
+      default: '/hux/source/img/home-bg.jpg'
+
+    tags_cover:
+      name: tags_cover
+      label: 标签页顶部图
+      type: text
+      default: '/hux/source/img/tag-bg.jpg'
+sns:
+  label: 社交设置
+  items:
+    sns_rss:
+      name: sns_rss
+      label: RSS
+      type: radio
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+
+    sns_weibo:
+      name: sns_weibo
+      label: 微博
+      type: text
+
+    sns_zhihu:
+      name: sns_zhihu
+      label: 知乎
+      type: text
+
+    sns_github:
+      name: sns_github
+      label: Github
+      type: text
+
+    sns_twitter:
+      name: sns_twitter
+      label: Twitter
+      type: text
+
+    sns_facebook:
+      name: sns_facebook
+      label: Facebook
+      type: text
+
+style:
+  label: 样式设置
+  items:
+    style_sidebar:
+      name: style_sidebar
+      label: 侧边栏
+      type: radio
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 显示
+        - value: false
+          label: 隐藏
+    style_sidebar_tags:
+      name: style_sidebar_tags
+      label: 侧边栏标签
+      type: radio
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 显示
+        - value: false
+          label: 隐藏
+    style_sidebar_links:
+      name: style_sidebar_links
+      label: 侧边栏友链
+      type: radio
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 显示
+        - value: false
+          label: 隐藏
