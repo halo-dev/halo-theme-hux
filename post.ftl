@@ -1,5 +1,5 @@
 <#include "module/default.ftl">
-<@default title="${post.postTitle} - ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${post.postSummary!}">
+<@default title="${post.title} - ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${post.summary!}">
 <!-- Image to hack wechat -->
 <!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
 <!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
@@ -8,7 +8,7 @@
 <style type="text/css">
     header.intro-header {
         position: relative;
-        background-image: url("${post.postThumbnail?default('${options.hux_general_index_cover!}')}")
+        background-image: url("${post.thumbnail?default('${options.hux_general_index_cover!}')}")
     }
 </style>
 <header class="intro-header">
@@ -19,12 +19,12 @@
                     <div class="tags">
                         <#if post.tags?? && post.tags?size gt 0>
                             <#list post.tags as tag>
-                                <a class="tag" href="${options.blog_url!}/tags/#${tag.tagUrl}" title="${tag.tagName}">${tag.tagName}</a>
+                                <a class="tag" href="${options.blog_url!}/tags/#${tag.slugName}" title="${tag.name}">${tag.name}</a>
                             </#list>
                         </#if>
                     </div>
-                    <h1>${post.postTitle}</h1>
-                    <span class="meta">Posted by ${user.userDisplayName} on ${post.postDate?string("MM-dd，yyyy")}</span>
+                    <h1>${post.title}</h1>
+                    <span class="meta">Posted by ${user.nickName} on ${post.postDate?string("MM-dd，yyyy")}</span>
                 </div>
             </div>
         </div>
@@ -42,7 +42,7 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                ${post.postContent}
+                ${post.formatContent}
 
                 <hr>
 
@@ -52,14 +52,14 @@
                 <ul class="pager">
                     <#if afterPost??>
                         <li class="previous">
-                            <a href="${options.blog_url!}/archives/${afterPost.postUrl}" data-toggle="tooltip" data-placement="top"
-                               title="${afterPost.postTitle}">&larr; Previous Post</a>
+                            <a href="${options.blog_url!}/archives/${afterPost.url}" data-toggle="tooltip" data-placement="top"
+                               title="${afterPost.title}">&larr; Previous Post</a>
                         </li>
                     </#if>
                     <#if beforePost??>
                     <li class="next">
-                        <a href="${options.blog_url!}/archives/${beforePost.postUrl}" data-toggle="tooltip" data-placement="top"
-                           title="${beforePost.postTitle}">Next Post &rarr;</a>
+                        <a href="${options.blog_url!}/archives/${beforePost.url}" data-toggle="tooltip" data-placement="top"
+                           title="${beforePost.title}">Next Post &rarr;</a>
                     </li>
                     </#if>
                 </ul>
@@ -96,8 +96,8 @@
                               <@commonTag method="tags">
                                   <#if tags?? && tags?size gt 0>
                                       <#list tags as tag>
-                                        <a href="${options.blog_url!}/tags/#${tag.tagUrl}" title="${tag.tagName}" rel="">
-                                            ${tag.tagName}
+                                        <a href="${options.blog_url!}/tags/#${tag.slugName}" title="${tag.name}" rel="">
+                                            ${tag.name}
                                         </a>
                                       </#list>
                                   </#if>

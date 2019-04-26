@@ -19,7 +19,7 @@
 <!-- Main Content -->
 <div class="container">
     <div class="row">
-        <#if options.hux_style_sidebar?default("true") == "false">
+        <#if settings.style_sidebar!true>
             <!-- NO SIDEBAR -->
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
@@ -32,36 +32,36 @@
                 sidebar-container">
 
                 <!-- Featured Tags -->
-                <#if options.hux_style_sidebar_tags?default("true") == "true">
+                <#if settings.style_sidebar_tags!true>
                 <section>
                     <!-- no hr -->
                     <h5><a href="${options.blog_url!}/tags">FEATURED TAGS</a></h5>
                     <div class="tags">
-                        <@commonTag method="tags">
+                        <@tagTag method="list">
                             <#if tags?? && tags?size gt 0>
                                 <#list tags as tag>
-                                    <a href="${options.blog_url!}/tags/#${tag.tagUrl}" title="${tag.tagName}" rel="">
-                                        ${tag.tagName}
+                                    <a href="${options.blog_url!}/tags/#${tag.slugName}" title="${tag.name}" rel="">
+                                        ${tag.name}
                                     </a>
                                 </#list>
                             </#if>
-                        </@commonTag>
+                        </@tagTag>
                     </div>
                 </section>
                 </#if>
 
                 <!-- Friends Blog -->
-                <#if options.hux_style_sidebar_links?default("true") == "true">
+                <#if settings.style_sidebar_links!true>
                     <hr>
                     <h5>FRIENDS</h5>
                     <ul class="list-inline">
-                        <@commonTag method="links">
+                        <@linkTag method="list">
                             <#if links?? && links?size gt 0>
                                 <#list links as link>
-                                <li><a href="${link.linkUrl}">${link.linkName}</a></li>
+                                <li><a href="${link.url}">${link.name}</a></li>
                                 </#list>
                             </#if>
-                        </@commonTag>
+                        </@linkTag>
                     </ul>
                 </#if>
                 <div class="comment">
@@ -90,20 +90,20 @@
                 sidebar-container
             ">
                 <!-- Featured Tags -->
-                <#if options.hux_style_sidebar_tags?default("true") == "true">
+                <#if settings.style_sidebar_tags!true>
                 <section>
                     <hr class="hidden-sm hidden-xs">
                     <h5><a href="${options.blog_url!}/tags">FEATURED TAGS</a></h5>
                     <div class="tags">
-                        <@commonTag method="tags">
+                        <@tagTag method="list">
                             <#if tags?? && tags?size gt 0>
                                 <#list tags as tag>
-                                <a href="${options.blog_url!}/tags/#${tag.tagUrl}" title="${tag.tagName}" rel="">
-                                    ${tag.tagName}
+                                <a href="${options.blog_url!}/tags/#${tag.slugName}" title="${tag.name}" rel="">
+                                    ${tag.name}
                                 </a>
                                 </#list>
                             </#if>
-                        </@commonTag>
+                        </@tagTag>
                     </div>
                 </section>
                 </#if>
@@ -117,7 +117,7 @@
                         <p>${user.userDesc!}</p>
                         <!-- SNS Link -->
                         <ul class="list-inline">
-                            <#if options.hux_sns_rss?default("true")=="true">
+                            <#if settings.sns_rss!true>
                             <li>
                                 <a href="${options.blog_url!}/feed.xml">
                                     <span class="fa-stack fa-lg">
@@ -127,9 +127,9 @@
                                 </a>
                             </li>
                             </#if>
-                            <#if options.hux_sns_twitter??>
+                            <#if settings.sns_twitter??>
                             <li>
-                                <a href="https://twitter.com/${options.hux_sns_twitter}">
+                                <a href="https://twitter.com/${settings.sns_twitter}">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -137,9 +137,9 @@
                                 </a>
                             </li>
                             </#if>
-                            <#if options.hux_sns_zhihu??>
+                            <#if settings.sns_zhihu??>
                             <li>
-                                <a target="_blank" href="https://www.zhihu.com/people/${options.hux_sns_zhihu}">
+                                <a target="_blank" href="https://www.zhihu.com/people/${settings.sns_zhihu}">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa  fa-stack-1x fa-inverse">知</i>
@@ -147,9 +147,9 @@
                                 </a>
                             </li>
                             </#if>
-                            <#if options.hux_sns_weibo??>
+                            <#if settings.sns_weibo??>
                             <li>
-                                <a target="_blank" href="http://weibo.com/${options.hux_sns_weibo}">
+                                <a target="_blank" href="http://weibo.com/${settings.sns_weibo}">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
@@ -157,9 +157,9 @@
                                 </a>
                             </li>
                             </#if>
-                            <#if options.hux_sns_facebook??>
+                            <#if settings.sns_facebook??>
                             <li>
-                                <a target="_blank" href="https://www.facebook.com/${options.hux_sns_facebook}">
+                                <a target="_blank" href="https://www.facebook.com/${settings.sns_facebook}">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
@@ -167,9 +167,9 @@
                                 </a>
                             </li>
                             </#if>
-                            <#if options.hux_sns_github??>
+                            <#if settings.sns_github??>
                             <li>
-                                <a target="_blank" href="https://github.com/${options.hux_sns_github}">
+                                <a target="_blank" href="https://github.com/${settings.sns_github}">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -181,7 +181,7 @@
                     </div>
                 </section>
                 <!-- Friends Blog -->
-                <#if options.hux_style_sidebar_links?default("true") == "true">
+                <#if settings.style_sidebar_links!true>
                     <hr>
                     <h5>FRIENDS</h5>
                     <ul class="list-inline">
