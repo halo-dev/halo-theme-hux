@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <ul class="list-inline text-center">
-                    <#if settings.sns_rss!true>
+                    <#if settings.rss!true>
                     <li>
                         <a href="${options.blog_url!}/feed.xml">
                             <span class="fa-stack fa-lg">
@@ -14,9 +14,9 @@
                         </a>
                     </li>
                     </#if>
-                    <#if settings.sns_twitter??>
+                    <#if settings.twitter??>
                     <li>
-                        <a href="https://twitter.com/${settings.sns_twitter}">
+                        <a href="https://twitter.com/${settings.twitter}">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -25,9 +25,9 @@
                     </li>
                     </#if>
                     <!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
-                    <#if settings.sns_zhihu??>
+                    <#if settings.zhihu??>
                     <li>
-                        <a target="_blank" href="https://www.zhihu.com/people/${settings.sns_zhihu}">
+                        <a target="_blank" href="https://www.zhihu.com/people/${settings.zhihu}">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa  fa-stack-1x fa-inverse">知</i>
@@ -35,9 +35,9 @@
                         </a>
                     </li>
                     </#if>
-                    <#if settings.sns_weibo??>
+                    <#if settings.weibo??>
                     <li>
-                        <a target="_blank" href="http://weibo.com/${settings.sns_weibo}">
+                        <a target="_blank" href="http://weibo.com/${settings.weibo}">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
@@ -45,9 +45,9 @@
                         </a>
                     </li>
                     </#if>
-                    <#if settings.sns_facebook??>
+                    <#if settings.facebook??>
                     <li>
-                        <a target="_blank" href="https://www.facebook.com/${settings.sns_facebook}">
+                        <a target="_blank" href="https://www.facebook.com/${settings.facebook}">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
@@ -55,9 +55,9 @@
                         </a>
                     </li>
                     </#if>
-                    <#if settings.sns_github??>
+                    <#if settings.github??>
                     <li>
-                        <a target="_blank" href="https://github.com/${settings.sns_github}">
+                        <a target="_blank" href="https://github.com/${settings.github}">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-github fa-stack-1x fa-inverse"></i>

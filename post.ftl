@@ -8,7 +8,7 @@
 <style type="text/css">
     header.intro-header {
         position: relative;
-        background-image: url("${post.thumbnail?default('${options.hux_general_index_cover!}')}")
+        background-image: url("${post.thumbnail?default('${settings.index_cover!}')}")
     }
 </style>
 <header class="intro-header">
@@ -17,14 +17,14 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
                     <div class="tags">
-                        <#if post.tags?? && post.tags?size gt 0>
-                            <#list post.tags as tag>
+                        <#if tags?? && tags?size gt 0>
+                            <#list tags as tag>
                                 <a class="tag" href="${options.blog_url!}/tags/#${tag.slugName}" title="${tag.name}">${tag.name}</a>
                             </#list>
                         </#if>
                     </div>
                     <h1>${post.title}</h1>
-                    <span class="meta">Posted by ${user.nickName} on ${post.postDate?string("MM-dd，yyyy")}</span>
+                    <span class="meta">Posted by ${user.nickName} on ${post.createTime?string("MM-dd，yyyy")}</span>
                 </div>
             </div>
         </div>
@@ -50,16 +50,16 @@
 
 
                 <ul class="pager">
-                    <#if afterPost??>
+                    <#if prePost??>
                         <li class="previous">
-                            <a href="${options.blog_url!}/archives/${afterPost.url}" data-toggle="tooltip" data-placement="top"
-                               title="${afterPost.title}">&larr; Previous Post</a>
+                            <a href="${options.blog_url!}/archives/${prePost.url}" data-toggle="tooltip" data-placement="top"
+                               title="${prePost.title}">&larr; Previous Post</a>
                         </li>
                     </#if>
-                    <#if beforePost??>
+                    <#if nextPost??>
                     <li class="next">
-                        <a href="${options.blog_url!}/archives/${beforePost.url}" data-toggle="tooltip" data-placement="top"
-                           title="${beforePost.title}">Next Post &rarr;</a>
+                        <a href="${options.blog_url!}/archives/${nextPost.url}" data-toggle="tooltip" data-placement="top"
+                           title="${nextPost.title}">Next Post &rarr;</a>
                     </li>
                     </#if>
                 </ul>
@@ -88,12 +88,12 @@
                 sidebar-container">
 
                 <!-- Featured Tags -->
-                <#if options.hux_style_sidebar_tags?default("true") == "true">
+                <#if settings.sidebar_tags!true>
                       <section>
                           <hr class="hidden-sm hidden-xs">
                           <h5><a href="${options.blog_url!}/tags/">FEATURED TAGS</a></h5>
                           <div class="tags">
-                              <@commonTag method="tags">
+                              <@tagTag method="list">
                                   <#if tags?? && tags?size gt 0>
                                       <#list tags as tag>
                                         <a href="${options.blog_url!}/tags/#${tag.slugName}" title="${tag.name}" rel="">
@@ -101,23 +101,23 @@
                                         </a>
                                       </#list>
                                   </#if>
-                              </@commonTag>
+                              </@tagTag>
                           </div>
                       </section>
                 </#if>
 
                 <!-- Friends Blog -->
-                <#if options.hux_style_sidebar_links?default("true") == "true">
+                <#if settings.sidebar_links!true>
                     <hr>
                     <h5>FRIENDS</h5>
                     <ul class="list-inline">
-                        <@commonTag method="links">
+                        <@linkTag method="list">
                             <#if links?? && links?size gt 0>
                                 <#list links as link>
-                                    <li><a href="${link.linkUrl}">${link.linkName}</a></li>
+                                    <li><a href="${link.url}">${link.name}</a></li>
                                 </#list>
                             </#if>
-                        </@commonTag>
+                        </@linkTag>
                     </ul>
                 </#if>
             </div>

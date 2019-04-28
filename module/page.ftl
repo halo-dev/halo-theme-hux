@@ -19,7 +19,7 @@
 <!-- Main Content -->
 <div class="container">
     <div class="row">
-        <#if settings.style_sidebar!true>
+        <#if settings.sidebar!true>
             <!-- NO SIDEBAR -->
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
@@ -32,7 +32,7 @@
                 sidebar-container">
 
                 <!-- Featured Tags -->
-                <#if settings.style_sidebar_tags!true>
+                <#if settings.sidebar_tags!true>
                 <section>
                     <!-- no hr -->
                     <h5><a href="${options.blog_url!}/tags">FEATURED TAGS</a></h5>
@@ -51,7 +51,7 @@
                 </#if>
 
                 <!-- Friends Blog -->
-                <#if settings.style_sidebar_links!true>
+                <#if settings.sidebar_links!true>
                     <hr>
                     <h5>FRIENDS</h5>
                     <ul class="list-inline">
@@ -90,7 +90,7 @@
                 sidebar-container
             ">
                 <!-- Featured Tags -->
-                <#if settings.style_sidebar_tags!true>
+                <#if settings.sidebar_tags!true>
                 <section>
                     <hr class="hidden-sm hidden-xs">
                     <h5><a href="${options.blog_url!}/tags">FEATURED TAGS</a></h5>
@@ -113,11 +113,11 @@
                     <hr>
                     <h5><a href="${options.blog_url!}/p/about">ABOUT ME</a></h5>
                     <div class="short-about">
-                        <img src="${user.userAvatar!}"/>
-                        <p>${user.userDesc!}</p>
+                        <img src="${user.avatar!}"/>
+                        <p>${user.description!}</p>
                         <!-- SNS Link -->
                         <ul class="list-inline">
-                            <#if settings.sns_rss!true>
+                            <#if settings.rss!true>
                             <li>
                                 <a href="${options.blog_url!}/feed.xml">
                                     <span class="fa-stack fa-lg">
@@ -127,9 +127,9 @@
                                 </a>
                             </li>
                             </#if>
-                            <#if settings.sns_twitter??>
+                            <#if settings.twitter??>
                             <li>
-                                <a href="https://twitter.com/${settings.sns_twitter}">
+                                <a href="https://twitter.com/${settings.twitter}">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -137,9 +137,9 @@
                                 </a>
                             </li>
                             </#if>
-                            <#if settings.sns_zhihu??>
+                            <#if settings.zhihu??>
                             <li>
-                                <a target="_blank" href="https://www.zhihu.com/people/${settings.sns_zhihu}">
+                                <a target="_blank" href="https://www.zhihu.com/people/${settings.zhihu}">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa  fa-stack-1x fa-inverse">知</i>
@@ -147,9 +147,9 @@
                                 </a>
                             </li>
                             </#if>
-                            <#if settings.sns_weibo??>
+                            <#if settings.weibo??>
                             <li>
-                                <a target="_blank" href="http://weibo.com/${settings.sns_weibo}">
+                                <a target="_blank" href="http://weibo.com/${settings.weibo}">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
@@ -157,9 +157,9 @@
                                 </a>
                             </li>
                             </#if>
-                            <#if settings.sns_facebook??>
+                            <#if settings.facebook??>
                             <li>
-                                <a target="_blank" href="https://www.facebook.com/${settings.sns_facebook}">
+                                <a target="_blank" href="https://www.facebook.com/${settings.facebook}">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
@@ -167,9 +167,9 @@
                                 </a>
                             </li>
                             </#if>
-                            <#if settings.sns_github??>
+                            <#if settings.github??>
                             <li>
-                                <a target="_blank" href="https://github.com/${settings.sns_github}">
+                                <a target="_blank" href="https://github.com/${settings.github}">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -181,17 +181,17 @@
                     </div>
                 </section>
                 <!-- Friends Blog -->
-                <#if settings.style_sidebar_links!true>
+                <#if settings.sidebar_links!true>
                     <hr>
                     <h5>FRIENDS</h5>
                     <ul class="list-inline">
-                        <@commonTag method="links">
+                        <@linkTag method="list">
                             <#if links?? && links?size gt 0>
                                 <#list links as link>
-                                <li><a href="${link.linkUrl}">${link.linkName}</a></li>
+                                <li><a href="${link.url}">${link.name}</a></li>
                                 </#list>
                             </#if>
-                        </@commonTag>
+                        </@linkTag>
                     </ul>
                 </#if>
             </div>
