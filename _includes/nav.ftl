@@ -17,7 +17,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <@menuTag method="list">
-                        <#list menus?sort_by("sort") as menu>
+                        <#list menus?sort_by("priority") as menu>
                             <li>
                                 <a href="${menu.url}">${menu.name}</a>
                             </li>

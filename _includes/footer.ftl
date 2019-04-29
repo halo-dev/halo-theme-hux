@@ -67,7 +67,7 @@
                     </#if>
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; ${options.blog_title} ${options.blog_start?substring(0,4)}
+                    Copyright &copy; ${options.blog_title} ${options.birthday?string('yyyy-MM-dd')}
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a> |
                     Published with <a href="https://github.com/ruibaby/halo" target="_blank">Halo</a><br>

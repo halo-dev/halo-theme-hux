@@ -64,9 +64,6 @@
                         </@linkTag>
                     </ul>
                 </#if>
-                <div class="comment">
-                    <#include "module/comment.ftl">
-                </div>
             </div>
         <#else >
 
