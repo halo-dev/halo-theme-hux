@@ -1,4 +1,4 @@
 <#include "module/page.ftl">
-<@page title="${sheet.title} - ${options.blog_title}" keywords="${options.seo_keywords!}" description="${sheet.summary!}" slogn="xxx" cover="${sheet.thumbnail!}">
-    ${sheet.formatContent}
+<@page title="${post.title} - ${options.blog_title}" keywords="${options.seo_keywords!}" description="${post.summary!}" slogn="xxx" cover="${post.thumbnail!}">
+    ${post.formatContent}
 </@page>
