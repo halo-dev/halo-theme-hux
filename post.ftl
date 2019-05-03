@@ -24,7 +24,7 @@
                         </#if>
                     </div>
                     <h1>${post.title}</h1>
-                    <span class="meta">Posted by ${user.nickName!} on ${post.createTime?string("MM-dd，yyyy")}</span>
+                    <span class="meta">Posted by ${user.nickname!} on ${post.createTime?string("MM-dd，yyyy")}</span>
                 </div>
             </div>
         </div>

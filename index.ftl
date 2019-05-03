@@ -16,7 +16,7 @@
         </div>
     </a>
     <p class="post-meta">
-        Posted by ${user.nickName!} on ${post.createTime?string("MM-dd，yyyy")}
+        Posted by ${user.nickname!} on ${post.createTime?string("MM-dd，yyyy")}
     </p>
 </div>
 <hr>
