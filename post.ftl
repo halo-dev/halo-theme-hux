@@ -66,6 +66,7 @@
 
                 <div class="comment">
                     <#include "module/comment.ftl">
+                    <@comment post=post type="post" />
                 </div>
             </div>
             <div class="

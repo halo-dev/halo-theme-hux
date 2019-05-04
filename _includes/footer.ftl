@@ -71,7 +71,7 @@
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a> |
                     Published with <a href="https://github.com/ruibaby/halo" target="_blank">Halo</a><br>
-                    <@footer_info></@footer_info>
+                    <@footer_info />
                 </p>
             </div>
         </div>
@@ -138,7 +138,7 @@
 </script>
 
 <!-- Tongji -->
-<@statistics></@statistics>
+<@statistics />
 
 <#if post??>
     <script type="text/javascript">
