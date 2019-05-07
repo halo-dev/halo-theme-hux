@@ -35,21 +35,21 @@
                     <span class="fa fa-tag listing-seperator" id="${tag.name}">
                         <span class="tag-text">${tag.name}</span>
                     </span>
-                    <#list tag.posts as post>
-                    <!-- <li class="listing-item">
-                        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                        </li> -->
-                        <div class="post-preview">
-                            <a href="${options.blog_url!}/archives/${post.url}">
-                                <h2 class="post-title">
-                                    ${post.title}
-                                </h2>
-                            </a>
-                            <p class="post-meta">${tag.createTime?string('yyyy-MM-dd')}</p>
-                        </div>
-                        <hr>
-                    </#list>
+                    <@postTag method="listByTagId" tagId="${tag.id}">
+                        <#if posts?? && posts?size gt 0>
+                            <#list posts as post>
+                                <div class="post-preview">
+                                    <a href="${options.blog_url!}/archives/${post.url}">
+                                        <h2 class="post-title">
+                                            ${post.title}
+                                        </h2>
+                                    </a>
+                                    <p class="post-meta">${post.createTime?string('yyyy-MM-dd')}</p>
+                                </div>
+                                <hr>
+                            </#list>
+                        </#if>
+                    </@postTag>
                 </div>
             </#list>
         </div>

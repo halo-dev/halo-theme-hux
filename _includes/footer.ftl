@@ -70,7 +70,7 @@
                     Copyright &copy; ${options.blog_title!} ${options.birthday?string('yyyy-MM-dd')}
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a> |
-                    Published with <a href="https://github.com/ruibaby/halo" target="_blank">Halo</a><br>
+                    Published with <a href="https://github.com/halo-dev/halo" target="_blank">Halo</a><br>
                     <@footer_info />
                 </p>
             </div>
