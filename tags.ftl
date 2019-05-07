@@ -1,5 +1,5 @@
 <#include "module/default.ftl">
-<@default title="标签 - ${options.blog_title}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
+<@default title="标签 - ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
 <!-- Page Header -->
 <header class="intro-header" style="background-image: url('${settings.tags_cover!("/${theme.folderName}/source/img/tag-bg.jpg")}"')">
     <div class="container">
