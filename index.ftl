@@ -1,8 +1,8 @@
 <#include "module/page.ftl">
-<@page title="${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}" slogn="${settings.index_slogn!}" cover="${settings.index_cover!'/${theme.folderName}/source/img/home-bg.jpg'}">
+<@page title="${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}" slogn="${settings.index_slogn!}" cover="${settings.index_cover!'/${static!}/source/img/home-bg.jpg'}">
     <#list posts.content as post>
 <div class="post-preview">
-    <a href="${options.blog_url!}/archives/${post.url!}">
+    <a href="${ctx!}/archives/${post.url!}">
         <h2 class="post-title">
             ${post.title!}
         </h2>
@@ -26,15 +26,15 @@
     <#if posts.hasPrevious()>
     <li class="previous">
         <#if posts.number ==1>
-            <a href="${options.blog_url!}/">&larr; Newer Posts</a>
+            <a href="${ctx!}/">&larr; Newer Posts</a>
         <#else>
-            <a href="${options.blog_url!}/page/${posts.number}">&larr; Newer Posts</a>
+            <a href="${ctx!}/page/${posts.number}">&larr; Newer Posts</a>
         </#if>
     </li>
     </#if>
     <#if posts.hasNext()>
     <li class="next">
-        <a href="${options.blog_url!}/page/${posts.number+2}">Older Posts &rarr;</a>
+        <a href="${ctx!}/page/${posts.number+2}">Older Posts &rarr;</a>
     </li>
     </#if>
 </ul>
