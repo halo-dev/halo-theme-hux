@@ -1,7 +1,7 @@
 <#include "module/default.ftl">
 <@default title="标签 - ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
 <!-- Page Header -->
-<header class="intro-header" style="background-image: url('${settings.tags_cover!("/${static!}/source/img/tag-bg.jpg")}"')">
+<header class="intro-header" style="background-image: url('${settings.tags_cover!("${static!}/source/img/tag-bg.jpg")}"')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -39,7 +39,7 @@
                         <#if posts?? && posts?size gt 0>
                             <#list posts as post>
                                 <div class="post-preview">
-                                    <a href="${ctx!}/archives/${post.url}">
+                                    <a href="${context!}/archives/${post.url}">
                                         <h2 class="post-title">
                                             ${post.title}
                                         </h2>

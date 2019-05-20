@@ -19,7 +19,7 @@
                     <div class="tags">
                         <#if tags?? && tags?size gt 0>
                             <#list tags as tag>
-                                <a class="tag" href="${ctx!}/tags/#${tag.slugName}" title="${tag.name}">${tag.name}</a>
+                                <a class="tag" href="${context!}/tags/#${tag.slugName}" title="${tag.name}">${tag.name}</a>
                             </#list>
                         </#if>
                     </div>
@@ -52,13 +52,13 @@
                 <ul class="pager">
                     <#if prePost??>
                         <li class="previous">
-                            <a href="${ctx!}/archives/${prePost.url}" data-toggle="tooltip" data-placement="top"
+                            <a href="${context!}/archives/${prePost.url}" data-toggle="tooltip" data-placement="top"
                                title="${prePost.title}">&larr; Previous Post</a>
                         </li>
                     </#if>
                     <#if nextPost??>
                     <li class="next">
-                        <a href="${ctx!}/archives/${nextPost.url}" data-toggle="tooltip" data-placement="top"
+                        <a href="${context!}/archives/${nextPost.url}" data-toggle="tooltip" data-placement="top"
                            title="${nextPost.title}">Next Post &rarr;</a>
                     </li>
                     </#if>
@@ -92,12 +92,12 @@
                 <#if settings.sidebar_tags!true>
                       <section>
                           <hr class="hidden-sm hidden-xs">
-                          <h5><a href="${ctx!}/tags/">FEATURED TAGS</a></h5>
+                          <h5><a href="${context!}/tags/">FEATURED TAGS</a></h5>
                           <div class="tags">
                               <@tagTag method="list">
                                   <#if tags?? && tags?size gt 0>
                                       <#list tags as tag>
-                                        <a href="${ctx!}/tags/#${tag.slugName}" title="${tag.name}" rel="">
+                                        <a href="${context!}/tags/#${tag.slugName}" title="${tag.name}" rel="">
                                             ${tag.name}
                                         </a>
                                       </#list>

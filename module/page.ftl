@@ -35,12 +35,12 @@
                 <#if settings.sidebar_tags!true>
                 <section>
                     <!-- no hr -->
-                    <h5><a href="${ctx!}/tags">FEATURED TAGS</a></h5>
+                    <h5><a href="${context!}/tags">FEATURED TAGS</a></h5>
                     <div class="tags">
                         <@tagTag method="list">
                             <#if tags?? && tags?size gt 0>
                                 <#list tags as tag>
-                                    <a href="${ctx!}/tags/#${tag.slugName}" title="${tag.name}" rel="">
+                                    <a href="${context!}/tags/#${tag.slugName}" title="${tag.name}" rel="">
                                         ${tag.name}
                                     </a>
                                 </#list>
@@ -90,12 +90,12 @@
                 <#if settings.sidebar_tags!true>
                 <section>
                     <hr class="hidden-sm hidden-xs">
-                    <h5><a href="${ctx!}/tags">FEATURED TAGS</a></h5>
+                    <h5><a href="${context!}/tags">FEATURED TAGS</a></h5>
                     <div class="tags">
                         <@tagTag method="list">
                             <#if tags?? && tags?size gt 0>
                                 <#list tags as tag>
-                                <a href="${ctx!}/tags/#${tag.slugName}" title="${tag.name}" rel="">
+                                <a href="${context!}/tags/#${tag.slugName}" title="${tag.name}" rel="">
                                     ${tag.name}
                                 </a>
                                 </#list>
@@ -108,7 +108,7 @@
                 <!-- Short About -->
                 <section class="visible-md visible-lg">
                     <hr>
-                    <h5><a href="${ctx!}/p/about">ABOUT ME</a></h5>
+                    <h5><a href="${context!}/p/about">ABOUT ME</a></h5>
                     <div class="short-about">
                         <img src="${user.avatar!}"/>
                         <p>${user.description!}</p>
@@ -116,7 +116,7 @@
                         <ul class="list-inline">
                             <#if settings.rss!true>
                             <li>
-                                <a href="${ctx!}/feed.xml">
+                                <a href="${context!}/feed.xml">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
