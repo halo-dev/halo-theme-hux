@@ -67,7 +67,7 @@
                     </#if>
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; ${options.blog_title!} ${options.birthday?string('yyyy-MM-dd')}
+                    Copyright &copy; ${options.blog_title!} ${(options.birthday)?number_to_date?string("yyyy-MM-dd")} 
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a> |
                     Published with <a href="https://github.com/halo-dev/halo" target="_blank">Halo</a><br>
