@@ -84,3 +84,4 @@
         __HuxNav__.close();
     });
 </script>
+</#if>
