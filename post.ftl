@@ -9,9 +9,10 @@
     header.intro-header {
         position: relative;
         background-image: url("${post.thumbnail?default('${settings.index_cover!}')}")
+        background: ;
     }
 </style>
-<header class="intro-header">
+<header class="intro-header style-text">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
