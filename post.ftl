@@ -5,14 +5,32 @@
 <!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
 
 <!-- Post Header -->
-<style type="text/css">
-    header.intro-header {
-        position: relative;
-        background-image: url("${post.thumbnail?default('${settings.index_cover!}')}")
-        background: ;
-    }
-</style>
-<header class="intro-header style-text">
+<#if post.thumbnail??>
+    <style type="text/css">
+        header.intro-header {
+            position: relative;
+            background-image: url("${post.thumbnail?default('${settings.index_cover!}')}")
+            background: ;
+        }
+    </style>
+    <header class="intro-header">
+<#else>
+    <style type="text/css">
+        header.intro-header {
+            position: relative;
+            background-image: url("${post.thumbnail?default('${settings.index_cover!}')}")
+            background: ;
+        }
+        header.intro-header .header-mask{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: rgba(0,0,0, 0.4);
+        }
+    </style>
+    <header class="intro-header style-text">
+</#if>
+
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
