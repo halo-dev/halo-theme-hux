@@ -1,6 +1,8 @@
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
+<#if is_post!false>
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
+<#else>
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">    <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
             <button type="button" class="navbar-toggle">
