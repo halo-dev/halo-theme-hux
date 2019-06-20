@@ -2,6 +2,15 @@
     <#include "default.ftl">
     <@default title="${title}" keywords="${keywords}" description="${description}">
 <!-- Page Header -->
+<#if is_sheet!false>
+    <#if post.thumbnail?length gt 0>
+        <header class="intro-header" style="background-image: url(${cover})">
+    <#else>
+        <header class="intro-header" style="background-image: url(${post.thumbnail?default(${cover})})">
+    </#if>
+<#else>
+    <header class="intro-header" style="background-image: url(${cover})">
+</#if>
 <header class="intro-header" style="background-image: url('${cover}')">
     <div class="container">
         <div class="row">
