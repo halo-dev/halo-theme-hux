@@ -1,6 +1,6 @@
 <!-- Navigation -->
 <#if is_post!false>
-    <#if post.thumbnail??>
+    <#if post.thumbnail?length gt 0>
         <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
     <#else>
         <nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">

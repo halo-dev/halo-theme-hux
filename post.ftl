@@ -5,11 +5,11 @@
 <!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
 
 <!-- Post Header -->
-<#if post.thumbnail??>
+<#if post.thumbnail?length gt 0>
     <style type="text/css">
         header.intro-header {
             position: relative;
-            background-image: url("${post.thumbnail?default('${settings.index_cover!}')}")
+            background-image: url("${post.thumbnail?default('${settings.index_cover!}')}");
             background: ;
         }
     </style>
@@ -18,7 +18,6 @@
     <style type="text/css">
         header.intro-header {
             position: relative;
-            background-image: url("${post.thumbnail?default('${settings.index_cover!}')}")
             background: ;
         }
         header.intro-header .header-mask{
