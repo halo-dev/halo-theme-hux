@@ -6,12 +6,11 @@
     <#if post.thumbnail?length gt 0>
         <header class="intro-header" style="background-image: url(${cover})">
     <#else>
-        <header class="intro-header" style="background-image: url(${post.thumbnail?default(${cover})})">
+        <header class="intro-header" style="background-image: url(${post.thumbnail})">
     </#if>
 <#else>
     <header class="intro-header" style="background-image: url(${cover})">
 </#if>
-<header class="intro-header" style="background-image: url('${cover}')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
