@@ -86,6 +86,7 @@
 <!-- Service Worker -->
 <script src="${static!}/source/js/snackbar.js"></script>
 <script src="${static!}/source/js/sw-registration.js"></script>
+<script src="${static!}/source/js/archive.js"></script>
 <!-- async load function -->
 <script>
     function async(u, c) {
