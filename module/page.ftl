@@ -116,7 +116,7 @@
                 <!-- Short About -->
                 <section class="visible-md visible-lg">
                     <hr>
-                    <h5><a href="${context!}/p/about">ABOUT ME</a></h5>
+                    <h5><a href="${context!}/s/about">ABOUT ME</a></h5>
                     <div class="short-about">
                         <img src="${user.avatar!}"/>
                         <p>${user.description!}</p>
