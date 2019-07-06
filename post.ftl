@@ -37,7 +37,7 @@
                     <div class="tags">
                         <#if tags?? && tags?size gt 0>
                             <#list tags as tag>
-                                <a class="tag" href="${context!}/tags/#${tag.slugName}" title="${tag.name}">${tag.name}</a>
+                                <a class="tag" href="${context!}/tags/?tag=${tag.slugName}" title="${tag.name}">${tag.name}</a>
                             </#list>
                         </#if>
                     </div>
@@ -115,7 +115,7 @@
                               <@tagTag method="list">
                                   <#if tags?? && tags?size gt 0>
                                       <#list tags as tag>
-                                        <a href="${context!}/tags/#${tag.slugName}" title="${tag.name}" rel="">
+                                        <a href="${context!}/tags/?tag=${tag.slugName}" title="${tag.name}" rel="">
                                             ${tag.name}
                                         </a>
                                       </#list>

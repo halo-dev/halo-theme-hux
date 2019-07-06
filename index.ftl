@@ -1,5 +1,5 @@
 <#include "module/page.ftl">
-<@page title="${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}" slogn="${settings.index_slogn!}" cover="${settings.index_cover!'${static!}/source/img/home-bg.jpg'}">
+<@page title="${options.blog_title!}" pagetitle="${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}" slogn="${settings.index_slogn!}" cover="${settings.index_cover!'${static!}/source/img/home-bg.jpg'}">
     <#list posts.content as post>
 <div class="post-preview">
     <a href="${context!}/archives/${post.url!}">
