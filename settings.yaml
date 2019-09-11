@@ -14,13 +14,13 @@ general:
     index_cover:
       name: index_cover
       label: 首页顶部图
-      type: text
+      type: attachment
       default: '/hux/source/img/home-bg.jpg'
 
     tags_cover:
       name: tags_cover
       label: 标签页顶部图
-      type: text
+      type: attachment
       default: '/hux/source/img/tag-bg.jpg'
 sns:
   label: 社交设置
