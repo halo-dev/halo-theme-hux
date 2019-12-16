@@ -47,7 +47,7 @@
 					    <span class="tag-text">${archive.year}</span>
                         <#list archive.posts as post>
                             <#assign postTags>
-                                <@tagTag method="listByPostId" postId="${post.id}">
+                                <@tagTag method="listByPostId" postId="${post.id?c}">
                                     <#if tags?? && tags?size gt 0>
                                         <#list tags as tag>
                                             ${tag.slugName}<#sep>,<#t>
