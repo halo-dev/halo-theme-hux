@@ -133,7 +133,7 @@
                         <@linkTag method="list">
                             <#if links?? && links?size gt 0>
                                 <#list links as link>
-                                    <li><a href="${link.url}">${link.name}</a></li>
+                                    <li><a href="${link.url}"  target="_blank" title="${link.description}">${link.name}</a></li>
                                 </#list>
                             </#if>
                         </@linkTag>
