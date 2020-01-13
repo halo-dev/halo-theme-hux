@@ -4,12 +4,12 @@
 <!-- Page Header -->
 <#if is_sheet!false>
     <#if post.thumbnail?length gt 0>
-        <header class="intro-header" style="background-image: url(${cover})">
+        <header class="intro-header" style="background-image: url('${cover}')">
     <#else>
-        <header class="intro-header" style="background-image: url(${post.thumbnail})">
+        <header class="intro-header" style="background-image: url('${post.thumbnail}')">
     </#if>
 <#else>
-    <header class="intro-header" style="background-image: url(${cover})">
+    <header class="intro-header" style="background-image: url('${cover}')">
 </#if>
     <div class="container">
         <div class="row">
