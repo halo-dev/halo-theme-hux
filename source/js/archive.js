@@ -133,6 +133,7 @@ https://github.com/kitian616/jekyll-TeXt-theme
         _tag = query.tag;
 
     init(); 
+    _tag = decodeURI(_tag);
     tagSelect(_tag);
 
     $tags.on('click', 'a', function() {   /* only change */
