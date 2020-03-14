@@ -17,7 +17,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="${context!}/">${options.blog_title!}</a>
+            <a class="navbar-brand" href="${context!}/">${blog_title!}</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->

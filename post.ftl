@@ -1,5 +1,5 @@
 <#include "module/default.ftl">
-<@default title="${post.title} - ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${post.summary!}">
+<@default title="${post.title!} - ${blog_title!}">
 <!-- Image to hack wechat -->
 <!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
 <!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
@@ -37,11 +37,11 @@
                     <div class="tags">
                         <#if tags?? && tags?size gt 0>
                             <#list tags as tag>
-                                <a class="tag" href="${context!}/tags/?tag=${tag.slugName}" title="${tag.name}">${tag.name}</a>
+                                <a class="tag" href="${tag.fullPath!}" title="${tag.name}">${tag.name}</a>
                             </#list>
                         </#if>
                     </div>
-                    <h1>${post.title}</h1>
+                    <h1>${post.title!}</h1>
                     <span class="meta">Posted by ${user.nickname!} on ${post.createTime?string("MM-dd，yyyy")}</span>
                 </div>
             </div>
@@ -60,7 +60,7 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                ${post.formatContent}
+                ${post.formatContent!}
 
                 <hr>
 
@@ -68,15 +68,15 @@
 
 
                 <ul class="pager">
-                    <#if prePost??>
+                    <#if prevPost??>
                         <li class="previous">
-                            <a href="${context!}/archives/${prePost.url}" data-toggle="tooltip" data-placement="top"
-                               title="${prePost.title}">&larr; Previous Post</a>
+                            <a href="${prevPost.fullPath!}" data-toggle="tooltip" data-placement="top"
+                               title="${prevPost.title}">&larr; Previous Post</a>
                         </li>
                     </#if>
                     <#if nextPost??>
                     <li class="next">
-                        <a href="${context!}/archives/${nextPost.url}" data-toggle="tooltip" data-placement="top"
+                        <a href="${nextPost.fullPath!}" data-toggle="tooltip" data-placement="top"
                            title="${nextPost.title}">Next Post &rarr;</a>
                     </li>
                     </#if>
@@ -110,12 +110,12 @@
                 <#if settings.sidebar_tags!true>
                       <section>
                           <hr class="hidden-sm hidden-xs">
-                          <h5><a href="${context!}/tags/">FEATURED TAGS</a></h5>
+                          <h5><a href="${tags_url!}">FEATURED TAGS</a></h5>
                           <div class="tags">
                               <@tagTag method="list">
                                   <#if tags?? && tags?size gt 0>
                                       <#list tags as tag>
-                                        <a href="${context!}/tags/?tag=${tag.slugName}" title="${tag.name}" rel="">
+                                        <a href="${tag.fullPath!}" title="${tag.name}" rel="">
                                             ${tag.name}
                                         </a>
                                       </#list>
