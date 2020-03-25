@@ -30,7 +30,7 @@
                         </a>
                         <#list tags?sort_by('postCount')?reverse as tag>
                             <a class="tag-button" 
-                                data-encode="${tag.slugName}" 
+                                data-encode="${tag.slug}"
                                 title="${tag.name}" 
                                 rel="${tag.postCount}">${tag.name}
                                 <sup>${tag.postCount}</sup>
@@ -50,7 +50,7 @@
                                 <@tagTag method="listByPostId" postId="${post.id?c}">
                                     <#if tags?? && tags?size gt 0>
                                         <#list tags as tag>
-                                            ${tag.slugName}<#sep>,<#t>
+                                            ${tag.slug}<#sep>,<#t>
                                         </#list>
                                     </#if>
                                 </@tagTag>

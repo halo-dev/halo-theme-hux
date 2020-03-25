@@ -48,7 +48,7 @@
                         <@tagTag method="list">
                             <#if tags?? && tags?size gt 0>
                                 <#list tags as tag>
-                                    <a href="${tag.fullPath!}" title="${tag.name}" rel="">
+                                    <a href="${tags_url!}?tag=${tag.slug!}" title="${tag.name}" rel="">
                                         ${tag.name}
                                     </a>
                                 </#list>
@@ -103,7 +103,7 @@
                         <@tagTag method="list">
                             <#if tags?? && tags?size gt 0>
                                 <#list tags as tag>
-                                <a href="${tag.fullPath!}" title="${tag.name}" rel="">
+                                <a href="${tags_url!}?tag=${tag.slug!}" title="${tag.name}" rel="">
                                     ${tag.name}
                                 </a>
                                 </#list>
@@ -116,7 +116,7 @@
                 <!-- Short About -->
                 <section class="visible-md visible-lg">
                     <hr>
-                    <h5><a href="${context!}/s/about">ABOUT ME</a></h5>
+                    <h5><a href="${blog_url!}/s/about">ABOUT ME</a></h5>
                     <div class="short-about">
                         <img src="${user.avatar!}"/>
                         <p>${user.description!}</p>
