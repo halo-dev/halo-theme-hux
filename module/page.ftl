@@ -1,6 +1,6 @@
-<#macro page title="" pagetitle="" keywords="" description="" slogn="" cover="">
+<#macro page title="" pagetitle="" slogn="" cover="">
     <#include "default.ftl">
-    <@default title="${title}" keywords="${keywords}" description="${description}">
+    <@default title="${title}">
 <!-- Page Header -->
 <#if is_sheet!false>
     <#if post.thumbnail?length gt 0>
@@ -43,12 +43,12 @@
                 <#if settings.sidebar_tags!true>
                 <section>
                     <!-- no hr -->
-                    <h5><a href="${context!}/tags">FEATURED TAGS</a></h5>
+                    <h5><a href="${tags_url!}">FEATURED TAGS</a></h5>
                     <div class="tags">
                         <@tagTag method="list">
                             <#if tags?? && tags?size gt 0>
                                 <#list tags as tag>
-                                    <a href="${context!}/tags/?tag=${tag.slugName}" title="${tag.name}" rel="">
+                                    <a href="${tags_url!}?tag=${tag.slug!}" title="${tag.name}" rel="">
                                         ${tag.name}
                                     </a>
                                 </#list>
@@ -98,12 +98,12 @@
                 <#if settings.sidebar_tags!true>
                 <section>
                     <hr class="hidden-sm hidden-xs">
-                    <h5><a href="${context!}/tags">FEATURED TAGS</a></h5>
+                    <h5><a href="${tags_url!}">FEATURED TAGS</a></h5>
                     <div class="tags">
                         <@tagTag method="list">
                             <#if tags?? && tags?size gt 0>
                                 <#list tags as tag>
-                                <a href="${context!}/tags/?tag=${tag.slugName}" title="${tag.name}" rel="">
+                                <a href="${tags_url!}?tag=${tag.slug!}" title="${tag.name}" rel="">
                                     ${tag.name}
                                 </a>
                                 </#list>
@@ -116,7 +116,7 @@
                 <!-- Short About -->
                 <section class="visible-md visible-lg">
                     <hr>
-                    <h5><a href="${context!}/s/about">ABOUT ME</a></h5>
+                    <h5><a href="${blog_url!}/s/about">ABOUT ME</a></h5>
                     <div class="short-about">
                         <img src="${user.avatar!}"/>
                         <p>${user.description!}</p>
@@ -124,7 +124,7 @@
                         <ul class="list-inline">
                             <#if settings.rss!true>
                             <li>
-                                <a href="${context!}/feed.xml">
+                                <a href="${rss_url!}">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa fa-rss fa-stack-1x fa-inverse"></i>

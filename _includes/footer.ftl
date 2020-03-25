@@ -6,7 +6,7 @@
                 <ul class="list-inline text-center">
                     <#if settings.rss!true>
                     <li>
-                        <a href="${context!}/feed.xml">
+                        <a href="${rss_url!}">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
@@ -67,7 +67,7 @@
                     </#if>
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; ${options.blog_title!} ${(options.birthday)?number_to_date?string("yyyy-MM-dd")} 
+                    Copyright &copy; ${blog_title!} ${(options.birthday)?number_to_date?string("yyyy-MM-dd")}
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a> |
                     Published with <a href="https://halo.run" target="_blank">Halo</a><br>
@@ -78,15 +78,15 @@
     </div>
 </footer>
 <!-- jQuery -->
-<script src="${static!}/source/js/jquery.min.js"></script>
+<script src="${theme_base!}/source/js/jquery.min.js"></script>
 <!-- Bootstrap Core JavaScript -->
-<script src="${static!}/source/js/bootstrap.min.js"></script>
+<script src="${theme_base!}/source/js/bootstrap.min.js"></script>
 <!-- Custom Theme JavaScript -->
-<script src="${static!}/source/js/hux-blog.min.js"></script>
+<script src="${theme_base!}/source/js/hux-blog.min.js"></script>
 <!-- Service Worker -->
-<script src="${static!}/source/js/snackbar.js"></script>
-<script src="${static!}/source/js/sw-registration.js"></script>
-<script src="${static!}/source/js/archive.js"></script>
+<script src="${theme_base!}/source/js/snackbar.js"></script>
+<script src="${theme_base!}/source/js/sw-registration.js"></script>
+<script src="${theme_base!}/source/js/archive.js"></script>
 <!-- async load function -->
 <script>
     function async(u, c) {
@@ -121,7 +121,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if ($('#tag_cloud').length !== 0) {
-        async("${static!}/source/js/jquery.tagcloud.js", function () {
+        async("${theme_base!}/source/js/jquery.tagcloud.js", function () {
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
@@ -180,7 +180,7 @@
          * Doc: https://github.com/davist11/jQuery-One-Page-Nav
          * Fork by Hux to support padding
          */
-        async("${static!}/source/js/jquery.nav.js", function () {
+        async("${theme_base!}/source/js/jquery.nav.js", function () {
             $('.catalog-body').onePageNav({
                 currentClass: "active",
                 changeHash: !1,

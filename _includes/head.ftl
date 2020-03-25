@@ -1,23 +1,23 @@
-<#macro head title="" keywords="" description="">
+<#macro head title>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="google-site-verification" content=""/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="${description}">
-    <meta name="keyword" content="${keywords}">
+    <meta name="description" content="${meta_description!}">
+    <meta name="keyword" content="${meta_keywords!}">
     <@globalHeader />
 
     <title>${title}</title>
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="${static!}/source/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${theme_base!}/source/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="${static!}/source/css/hux-blog.min.css">
+    <link rel="stylesheet" href="${theme_base!}/source/css/hux-blog.min.css">
 
     <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="${static!}/source/css/syntax.css">
+    <link rel="stylesheet" href="${theme_base!}/source/css/syntax.css">
 
     <!-- Custom Fonts -->
     <!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
