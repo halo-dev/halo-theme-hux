@@ -6,7 +6,7 @@
                 <ul class="list-inline text-center">
                     <#if settings.rss!true>
                     <li>
-                        <a href="${rss_url!}">
+                        <a href="${rss_url!}" title="RSS">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
@@ -16,7 +16,7 @@
                     </#if>
                     <#if settings.twitter??>
                     <li>
-                        <a href="https://twitter.com/${settings.twitter}">
+                        <a href="${settings.twitter}" title="twitter">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -27,7 +27,7 @@
                     <!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
                     <#if settings.zhihu??>
                     <li>
-                        <a target="_blank" href="https://www.zhihu.com/people/${settings.zhihu}">
+                        <a target="_blank" href="${settings.zhihu}" title="zhihu">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa  fa-stack-1x fa-inverse">知</i>
@@ -37,7 +37,7 @@
                     </#if>
                     <#if settings.weibo??>
                     <li>
-                        <a target="_blank" href="http://weibo.com/${settings.weibo}">
+                        <a target="_blank" href="${settings.weibo}" title="weibo">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
@@ -46,18 +46,18 @@
                     </li>
                     </#if>
                     <#if settings.facebook??>
-                    <li>
-                        <a target="_blank" href="https://www.facebook.com/${settings.facebook}">
+                        <li>
+                            <a target="_blank" href="${settings.facebook}" title="FaceBook">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
                             </span>
-                        </a>
-                    </li>
+                            </a>
+                        </li>
                     </#if>
                     <#if settings.github??>
                     <li>
-                        <a target="_blank" href="https://github.com/${settings.github}">
+                        <a target="_blank" href="${settings.github}" title="GitHub">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -65,9 +65,19 @@
                         </a>
                     </li>
                     </#if>
+                    <#if settings.bilibili??>
+                    <li>
+                        <a target="_blank" href="${settings.bilibili}" title="BiliBili">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-stack-2x biliFont fa-inverse">0</i>
+                            </span>
+                        </a>
+                    </li>
+                    </#if>
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; ${blog_title!} ${(options.birthday)?number_to_date?string("yyyy-MM-dd")}
+                    Copyright &copy; ${options.blog_title!} ${(options.birthday)?number_to_date?string("yyyy")} 
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a> |
                     Published with <a href="https://halo.run" target="_blank">Halo</a><br>
@@ -152,16 +162,16 @@
             // init
             var P = $(_containerSelector), a, n, t, l, i, c;
             a = P.find('h1,h2,h3,h4,h5,h6');
-
             // clean
             $(selector).html('')
 
             // appending
             a.each(function () {
                 n = $(this).prop('tagName').toLowerCase();
+              	let tn = n.substring(1,n.length);
                 i = "#" + $(this).prop('id');
                 t = $(this).text();
-                c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+                c = $('<a '+'style="margin-left:'+(tn-1)*5+'%;"'+' href="' + i + '" rel="nofollow">' + t + '</a>');
                 l = $('<li class="' + n + '_nav"></li>').append(c);
                 $(selector).append(l);
             });

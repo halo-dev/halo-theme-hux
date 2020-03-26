@@ -23,7 +23,12 @@
         </div>
     </div>
 </header>
-
+<#if settings.notice??>
+      <div style="text-align:center;" id="notice">
+<#--          公告-->
+			${settings.notice}
+      </div>
+</#if>
 <!-- Main Content -->
 <div class="container">
     <div class="row">
@@ -124,7 +129,7 @@
                         <ul class="list-inline">
                             <#if settings.rss!true>
                             <li>
-                                <a href="${rss_url!}">
+                                <a href="${rss_url!}" title="RSS">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
@@ -134,7 +139,7 @@
                             </#if>
                             <#if settings.twitter??>
                             <li>
-                                <a href="https://twitter.com/${settings.twitter}">
+                                <a href="${settings.twitter}" title="Twitter">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -144,7 +149,7 @@
                             </#if>
                             <#if settings.zhihu??>
                             <li>
-                                <a target="_blank" href="https://www.zhihu.com/people/${settings.zhihu}">
+                                <a target="_blank" href="${settings.zhihu}" title="知乎">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa  fa-stack-1x fa-inverse">知</i>
@@ -154,7 +159,7 @@
                             </#if>
                             <#if settings.weibo??>
                             <li>
-                                <a target="_blank" href="http://weibo.com/${settings.weibo}">
+                                <a target="_blank" href="${settings.weibo}" title="微博">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
@@ -163,18 +168,28 @@
                             </li>
                             </#if>
                             <#if settings.facebook??>
-                            <li>
-                                <a target="_blank" href="https://www.facebook.com/${settings.facebook}">
+                                <li>
+                                    <a target="_blank" href="${settings.facebook}" title="FaceBook">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                    </a>
+                                </li>
+                            </#if>
+                            <#if settings.bilibili??>
+                            <li>
+                                <a target="_blank" href="${settings.bilibili}" title="bilibili">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-stack-2x biliFont fa-inverse">1</i>
                                     </span>
                                 </a>
                             </li>
                             </#if>
                             <#if settings.github??>
                             <li>
-                                <a target="_blank" href="https://github.com/${settings.github}">
+                                <a target="_blank" href="${settings.github}" title="GitHub">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa fa-github fa-stack-1x fa-inverse"></i>
