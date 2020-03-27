@@ -10,7 +10,7 @@
         header.intro-header {
             position: relative;
             background-image: url("${post.thumbnail?default('${settings.index_cover!}')}");
-            background: ;
+            background-blend-mode: multiply;
         }
     </style>
     <header class="intro-header">
@@ -18,7 +18,7 @@
     <style type="text/css">
         header.intro-header {
             position: relative;
-            background: ;
+            /*background: ;*/
         }
         header.intro-header .header-mask{
             width: 100%;

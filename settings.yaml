@@ -22,6 +22,12 @@ general:
       label: 标签页顶部图
       type: attachment
       default: '/hux/source/img/tag-bg.jpg'
+
+    notice:
+      name: notice
+      label: 公告
+      type: textarea
+
 sns:
   label: 社交设置
   items:
@@ -60,6 +66,11 @@ sns:
     facebook:
       name: facebook
       label: Facebook
+      type: text
+
+    bilibili:
+      name: bilibili
+      label: BiliBili
       type: text
 
 style:

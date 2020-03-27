@@ -1,4 +1,4 @@
-<#macro head title>
+<#macro head title="" keywords="" description="">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,7 +22,7 @@
     <!-- Custom Fonts -->
     <!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
     <!-- Hux change font-awesome CDN to qiniu -->
-    <link href="//cdnjs.loli.net/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//cdnjs.loli.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 
     <link href='//fonts.loli.net/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -38,5 +38,20 @@
 
     <!-- ga & ba script hoook -->
     <script></script>
+  <style>
+    @font-face{
+    	font-family:bili;
+      	src: url('${theme_base!}/source/fonts/Bilibili.ttf')
+    }
+    .biliFont{
+    	font-family:bili
+    }
+    .post-title{
+      	padding:10px 10px 20px 10px;
+    }
+    .post-preview{
+    	border-radius:10px;
+    }
+  </style>
 </head>
 </#macro>
