@@ -81,16 +81,16 @@
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a> |
                     Published with <a href="https://halo.run" target="_blank">Halo</a><br>
-                    <@footer_info />
+                    <@global.footer />
                 </p>
             </div>
         </div>
     </div>
 </footer>
 <!-- jQuery -->
-<script src="${theme_base!}/source/js/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
 <!-- Bootstrap Core JavaScript -->
-<script src="${theme_base!}/source/js/bootstrap.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/bootstrap@3.3.2/dist/js/bootstrap.min.js"></script>
 <!-- Custom Theme JavaScript -->
 <script src="${theme_base!}/source/js/hux-blog.min.js"></script>
 <!-- Service Worker -->
@@ -122,11 +122,11 @@
      - https://help.github.com/articles/creating-and-highlighting-code-blocks/
 -->
 <script>
-    async("//cdnjs.loli.net/ajax/libs/highlight.js/8.6/highlight.min.js", function(){
+    async("//cdn.jsdelivr.net/npm/highlight.js@8.6.0/lib/highlight.min.js", function(){
         hljs.initHighlightingOnLoad();
     })
 </script>
-<link href="//cdnjs.loli.net/ajax/libs/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+<link href="//cdn.jsdelivr.net/npm/highlight.js@8.6.0/styles/github.min.css" rel="stylesheet">
 <!-- jquery.tagcloud.js -->
 <script>
     // only load tagcloud.js in tag.html
@@ -142,14 +142,11 @@
 </script>
 <!--fastClick.js -->
 <script>
-    async("//cdnjs.loli.net/ajax/libs/fastclick/1.0.6/fastclick.min.js", function () {
+    async("//cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function () {
         var $nav = document.querySelector("nav");
         if ($nav) FastClick.attach($nav);
     })
 </script>
-
-<!-- Tongji -->
-<@statistics />
 
 <#if post??>
     <script type="text/javascript">

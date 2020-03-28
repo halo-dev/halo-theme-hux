@@ -44,7 +44,7 @@
                 <#list archives as archive>
                     <section>
                         <span class="fa listing-seperator">
-					    <span class="tag-text">${archive.year}</span>
+					    <span class="tag-text">${archive.year?c}</span>
                         <#list archive.posts as post>
                             <#assign postTags>
                                 <@tagTag method="listByPostId" postId="${post.id?c}">
