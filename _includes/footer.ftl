@@ -70,7 +70,7 @@
                         <a target="_blank" href="${settings.bilibili}" title="BiliBili">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-stack-2x biliFont fa-inverse">0</i>
+                                <i class="fa fa-stack-1x fa-width-90 biliFont fa-inverse">1</i>
                             </span>
                         </a>
                     </li>

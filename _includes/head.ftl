@@ -48,6 +48,9 @@
         .post-preview{
             border-radius:10px;
         }
+        .fa-width-90 {
+            width: 90%;
+        }
     </style>
 </head>
 </#macro>
