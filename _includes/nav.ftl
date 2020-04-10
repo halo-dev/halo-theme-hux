@@ -17,7 +17,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="${context!}/">${options.blog_title!}</a>
+            <a class="navbar-brand" href="${blog_url!}">${blog_title!}</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -27,7 +27,7 @@
                     <@menuTag method="list">
                         <#list menus?sort_by("priority") as menu>
                             <li>
-                                <a href="${menu.url}">${menu.name}</a>
+                                <a href="${menu.url}" target="${menu.target!}">${menu.name}</a>
                             </li>
                         </#list>
                     </@menuTag>
