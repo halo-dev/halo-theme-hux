@@ -159,19 +159,28 @@
             // init
             var P = $(_containerSelector), a, n, t, l, i, c;
             a = P.find('h1,h2,h3,h4,h5,h6');
-            // clean
-            $(selector).html('')
 
-            // appending
-            a.each(function () {
-                n = $(this).prop('tagName').toLowerCase();
-              	let tn = n.substring(1,n.length);
-                i = "#" + $(this).prop('id');
-                t = $(this).text();
-                c = $('<a '+'style="margin-left:'+(tn-1)*5+'%;"'+' href="' + i + '" rel="nofollow">' + t + '</a>');
-                l = $('<li class="' + n + '_nav"></li>').append(c);
-                $(selector).append(l);
-            });
+            // if there is no catalog, them clear catalog's html content
+            if (a.length == 0) {
+                $catalog = $('.side-catalog');
+                // clean
+                $catalog.html('')
+            } else {
+                // clean
+                $(selector).html('')
+
+                // appending
+                a.each(function () {
+                    n = $(this).prop('tagName').toLowerCase();
+                    let tn = n.substring(1,n.length);
+                    i = "#" + $(this).prop('id');
+                    t = $(this).text();
+                    c = $('<a '+'style="margin-left:'+(tn-1)*5+'%;"'+' href="' + i + '" rel="nofollow">' + t + '</a>');
+                    l = $('<li class="' + n + '_nav"></li>').append(c);
+                    $(selector).append(l);
+                });
+            }
+            
             return true;
         }
 
