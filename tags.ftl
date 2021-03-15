@@ -1,7 +1,7 @@
 <#include "module/default.ftl">
-<@default title="标签 - ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
+<@default title="标签 - ${blog_title!}">
 <!-- Page Header -->
-<header class="intro-header" style="background-image: url('${settings.tags_cover!("${static!}/source/img/tag-bg.jpg")}"')">
+<header class="intro-header" style="background-image: url('${settings.tags_cover!("${theme_base!}/source/img/tag-bg.jpg")}"')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -30,7 +30,7 @@
                         </a>
                         <#list tags?sort_by('postCount')?reverse as tag>
                             <a class="tag-button" 
-                                data-encode="${tag.slugName}" 
+                                data-encode="${tag.slug}"
                                 title="${tag.name}" 
                                 rel="${tag.postCount}">${tag.name}
                                 <sup>${tag.postCount}</sup>
@@ -44,21 +44,21 @@
                 <#list archives as archive>
                     <section>
                         <span class="fa listing-seperator">
-					    <span class="tag-text">${archive.year}</span>
+					    <span class="tag-text">${archive.year?c}</span>
                         <#list archive.posts as post>
                             <#assign postTags>
-                                <@tagTag method="listByPostId" postId="${post.id}">
+                                <@tagTag method="listByPostId" postId="${post.id?c}">
                                     <#if tags?? && tags?size gt 0>
                                         <#list tags as tag>
-                                            ${tag.slugName}<#sep>,<#t>
+                                            ${tag.slug}<#sep>,<#t>
                                         </#list>
                                     </#if>
                                 </@tagTag>
                             </#assign>
                             <div class="post-preview item" data-tags="${postTags!''}">
-                                <a href="${context!}/archives/${post.url}">
+                                <a href="${post.fullPath!}">
                                     <h2 class="post-title">
-                                        ${post.title}
+                                        ${post.title!}
                                     </h2>
                                 </a>
                                 <hr>

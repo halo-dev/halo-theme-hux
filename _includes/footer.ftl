@@ -6,7 +6,7 @@
                 <ul class="list-inline text-center">
                     <#if settings.rss!true>
                     <li>
-                        <a href="${context!}/feed.xml">
+                        <a href="${rss_url!}" title="RSS">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
@@ -16,7 +16,7 @@
                     </#if>
                     <#if settings.twitter??>
                     <li>
-                        <a href="https://twitter.com/${settings.twitter}">
+                        <a href="${settings.twitter}" title="twitter">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -27,7 +27,7 @@
                     <!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
                     <#if settings.zhihu??>
                     <li>
-                        <a target="_blank" href="https://www.zhihu.com/people/${settings.zhihu}">
+                        <a target="_blank" href="${settings.zhihu}" title="zhihu">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa  fa-stack-1x fa-inverse">知</i>
@@ -37,7 +37,7 @@
                     </#if>
                     <#if settings.weibo??>
                     <li>
-                        <a target="_blank" href="http://weibo.com/${settings.weibo}">
+                        <a target="_blank" href="${settings.weibo}" title="weibo">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
@@ -46,18 +46,18 @@
                     </li>
                     </#if>
                     <#if settings.facebook??>
-                    <li>
-                        <a target="_blank" href="https://www.facebook.com/${settings.facebook}">
+                        <li>
+                            <a target="_blank" href="${settings.facebook}" title="FaceBook">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
                             </span>
-                        </a>
-                    </li>
+                            </a>
+                        </li>
                     </#if>
                     <#if settings.github??>
                     <li>
-                        <a target="_blank" href="https://github.com/${settings.github}">
+                        <a target="_blank" href="${settings.github}" title="GitHub">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -65,28 +65,38 @@
                         </a>
                     </li>
                     </#if>
+                    <#if settings.bilibili??>
+                    <li>
+                        <a target="_blank" href="${settings.bilibili}" title="BiliBili">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-stack-1x fa-width-90 biliFont fa-inverse">1</i>
+                            </span>
+                        </a>
+                    </li>
+                    </#if>
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; ${options.blog_title!} ${(options.birthday)?number_to_date?string("yyyy-MM-dd")} 
+                    Copyright &copy; ${options.blog_title!} ${(options.birthday)?number_to_date?string("yyyy")} 
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a> |
-                    Published with <a href="https://github.com/halo-dev/halo" target="_blank">Halo</a><br>
-                    <@footer_info />
+                    Published with <a href="https://halo.run" target="_blank">Halo</a><br>
+                    <@global.footer />
                 </p>
             </div>
         </div>
     </div>
 </footer>
 <!-- jQuery -->
-<script src="${static!}/source/js/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
 <!-- Bootstrap Core JavaScript -->
-<script src="${static!}/source/js/bootstrap.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/bootstrap@3.3.2/dist/js/bootstrap.min.js"></script>
 <!-- Custom Theme JavaScript -->
-<script src="${static!}/source/js/hux-blog.min.js"></script>
+<script src="${theme_base!}/source/js/hux-blog.min.js"></script>
 <!-- Service Worker -->
-<script src="${static!}/source/js/snackbar.js"></script>
-<script src="${static!}/source/js/sw-registration.js"></script>
-<script src="${static!}/source/js/archive.js"></script>
+<script src="${theme_base!}/source/js/snackbar.js"></script>
+<script src="${theme_base!}/source/js/sw-registration.js"></script>
+<script src="${theme_base!}/source/js/archive.js"></script>
 <!-- async load function -->
 <script>
     function async(u, c) {
@@ -112,16 +122,16 @@
      - https://help.github.com/articles/creating-and-highlighting-code-blocks/
 -->
 <script>
-    async("//cdnjs.loli.net/ajax/libs/highlight.js/8.6/highlight.min.js", function(){
+    async("//cdn.jsdelivr.net/npm/highlight.js@8.6.0/lib/highlight.min.js", function(){
         hljs.initHighlightingOnLoad();
     })
 </script>
-<link href="//cdnjs.loli.net/ajax/libs/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+<link href="//cdn.jsdelivr.net/npm/highlight.js@8.6.0/styles/github.min.css" rel="stylesheet">
 <!-- jquery.tagcloud.js -->
 <script>
     // only load tagcloud.js in tag.html
     if ($('#tag_cloud').length !== 0) {
-        async("${static!}/source/js/jquery.tagcloud.js", function () {
+        async("${theme_base!}/source/js/jquery.tagcloud.js", function () {
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
@@ -132,14 +142,11 @@
 </script>
 <!--fastClick.js -->
 <script>
-    async("//cdnjs.loli.net/ajax/libs/fastclick/1.0.6/fastclick.min.js", function () {
+    async("//cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function () {
         var $nav = document.querySelector("nav");
         if ($nav) FastClick.attach($nav);
     })
 </script>
-
-<!-- Tongji -->
-<@statistics />
 
 <#if post??>
     <script type="text/javascript">
@@ -153,18 +160,27 @@
             var P = $(_containerSelector), a, n, t, l, i, c;
             a = P.find('h1,h2,h3,h4,h5,h6');
 
-            // clean
-            $(selector).html('')
+            // if there is no catalog, them clear catalog's html content
+            if (a.length == 0) {
+                $catalog = $('.side-catalog');
+                // clean
+                $catalog.html('')
+            } else {
+                // clean
+                $(selector).html('')
 
-            // appending
-            a.each(function () {
-                n = $(this).prop('tagName').toLowerCase();
-                i = "#" + $(this).prop('id');
-                t = $(this).text();
-                c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
-                l = $('<li class="' + n + '_nav"></li>').append(c);
-                $(selector).append(l);
-            });
+                // appending
+                a.each(function () {
+                    n = $(this).prop('tagName').toLowerCase();
+                    let tn = n.substring(1,n.length);
+                    i = "#" + $(this).prop('id');
+                    t = $(this).text();
+                    c = $('<a '+'style="margin-left:'+(tn-1)*5+'%;"'+' href="' + i + '" rel="nofollow">' + t + '</a>');
+                    l = $('<li class="' + n + '_nav"></li>').append(c);
+                    $(selector).append(l);
+                });
+            }
+            
             return true;
         }
 
@@ -180,7 +196,7 @@
          * Doc: https://github.com/davist11/jQuery-One-Page-Nav
          * Fork by Hux to support padding
          */
-        async("${static!}/source/js/jquery.nav.js", function () {
+        async("${theme_base!}/source/js/jquery.nav.js", function () {
             $('.catalog-body').onePageNav({
                 currentClass: "active",
                 changeHash: !1,

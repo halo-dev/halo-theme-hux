@@ -11,17 +11,31 @@ general:
       label: 标签页描述
       type: text
 
+    archives_slogn:
+      name: archives_slogn
+      label: 归档页描述
+      type: text
+
     index_cover:
       name: index_cover
       label: 首页顶部图
-      type: text
-      default: '/hux/source/img/home-bg.jpg'
+      type: attachment
 
     tags_cover:
       name: tags_cover
       label: 标签页顶部图
-      type: text
-      default: '/hux/source/img/tag-bg.jpg'
+      type: attachment
+
+    archives_cover:
+      name: archives_cover
+      label: 归档页顶部图
+      type: attachment
+
+    notice:
+      name: notice
+      label: 公告
+      type: textarea
+
 sns:
   label: 社交设置
   items:
@@ -60,6 +74,11 @@ sns:
     facebook:
       name: facebook
       label: Facebook
+      type: text
+
+    bilibili:
+      name: bilibili
+      label: BiliBili
       type: text
 
 style:
