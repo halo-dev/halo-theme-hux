@@ -70,27 +70,27 @@
                         <a target="_blank" href="${settings.bilibili}" title="BiliBili">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-stack-2x biliFont fa-inverse">0</i>
+                                <i class="fa fa-stack-1x fa-width-90 biliFont fa-inverse">1</i>
                             </span>
                         </a>
                     </li>
                     </#if>
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; ${options.blog_title!} ${(options.birthday)?number_to_date?string("yyyy")} 
+                    Copyright &copy; ${options.blog_title!} ${(options.birthday)?number_to_date?string("yyyy")}
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a> |
                     Published with <a href="https://halo.run" target="_blank">Halo</a><br>
-                    <@footer_info />
+                    <@global.footer />
                 </p>
             </div>
         </div>
     </div>
 </footer>
 <!-- jQuery -->
-<script src="${theme_base!}/source/js/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
 <!-- Bootstrap Core JavaScript -->
-<script src="${theme_base!}/source/js/bootstrap.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/bootstrap@3.3.2/dist/js/bootstrap.min.js"></script>
 <!-- Custom Theme JavaScript -->
 <script src="${theme_base!}/source/js/hux-blog.min.js"></script>
 <!-- Service Worker -->
@@ -122,11 +122,11 @@
      - https://help.github.com/articles/creating-and-highlighting-code-blocks/
 -->
 <script>
-    async("//cdnjs.loli.net/ajax/libs/highlight.js/8.6/highlight.min.js", function(){
+    async("//cdn.jsdelivr.net/npm/highlight.js@8.6.0/lib/highlight.min.js", function(){
         hljs.initHighlightingOnLoad();
     })
 </script>
-<link href="//cdnjs.loli.net/ajax/libs/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+<link href="//cdn.jsdelivr.net/npm/highlight.js@8.6.0/styles/github.min.css" rel="stylesheet">
 <!-- jquery.tagcloud.js -->
 <script>
     // only load tagcloud.js in tag.html
@@ -142,14 +142,11 @@
 </script>
 <!--fastClick.js -->
 <script>
-    async("//cdnjs.loli.net/ajax/libs/fastclick/1.0.6/fastclick.min.js", function () {
+    async("//cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function () {
         var $nav = document.querySelector("nav");
         if ($nav) FastClick.attach($nav);
     })
 </script>
-
-<!-- Tongji -->
-<@statistics />
 
 <#if post??>
     <script type="text/javascript">
@@ -162,19 +159,28 @@
             // init
             var P = $(_containerSelector), a, n, t, l, i, c;
             a = P.find('h1,h2,h3,h4,h5,h6');
-            // clean
-            $(selector).html('')
 
-            // appending
-            a.each(function () {
-                n = $(this).prop('tagName').toLowerCase();
-              	let tn = n.substring(1,n.length);
-                i = "#" + $(this).prop('id');
-                t = $(this).text();
-                c = $('<a '+'style="margin-left:'+(tn-1)*5+'%;"'+' href="' + i + '" rel="nofollow">' + t + '</a>');
-                l = $('<li class="' + n + '_nav"></li>').append(c);
-                $(selector).append(l);
-            });
+            // if there is no catalog, them clear catalog's html content
+            if (a.length == 0) {
+                $catalog = $('.side-catalog');
+                // clean
+                $catalog.html('')
+            } else {
+                // clean
+                $(selector).html('')
+
+                // appending
+                a.each(function () {
+                    n = $(this).prop('tagName').toLowerCase();
+                    let tn = n.substring(1,n.length);
+                    i = "#" + $(this).prop('id');
+                    t = $(this).text();
+                    c = $('<a '+'style="margin-left:'+(tn-1)*5+'%;"'+' href="' + i + '" rel="nofollow">' + t + '</a>');
+                    l = $('<li class="' + n + '_nav"></li>').append(c);
+                    $(selector).append(l);
+                });
+            }
+
             return true;
         }
 

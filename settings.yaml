@@ -11,17 +11,25 @@ general:
       label: 标签页描述
       type: text
 
+    archives_slogn:
+      name: archives_slogn
+      label: 归档页描述
+      type: text
+
     index_cover:
       name: index_cover
       label: 首页顶部图
       type: attachment
-      default: '/hux/source/img/home-bg.jpg'
 
     tags_cover:
       name: tags_cover
       label: 标签页顶部图
       type: attachment
-      default: '/hux/source/img/tag-bg.jpg'
+
+    archives_cover:
+      name: archives_cover
+      label: 归档页顶部图
+      type: attachment
 
     notice:
       name: notice
