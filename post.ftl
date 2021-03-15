@@ -143,7 +143,6 @@
         </div>
     </div>
 </article>
-
 <!-- async load function -->
 <script>
     function async(u, c) {
@@ -161,6 +160,11 @@
 </script>
 <!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
 <script>
+    layer.photos({
+        photos: '.post-container',
+        shade:0.6,
+        maxmin:true
+    });
     async("//cdnjs.loli.net/ajax/libs/anchor-js/1.1.1/anchor.min.js", function () {
         anchors.options = {
             visible: 'always',
