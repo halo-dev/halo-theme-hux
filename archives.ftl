@@ -1,7 +1,7 @@
 <#include "module/default.ftl">
 <@default title="文章归档 - ${blog_title!}">
 <!-- Page Header -->
-<header class="intro-header" style="background-image: url('${settings.archives_cover!("${theme_base!}/source/img/tag-bg.jpg")}"')">
+<header class="intro-header" style="background-image: url('${settings.archives_cover!("${theme_base!}/source/img/tag-bg.jpg")}">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">

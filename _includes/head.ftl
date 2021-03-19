@@ -18,7 +18,7 @@
 
     <!-- Pygments Github CSS -->
     <link rel="stylesheet" href="${theme_base!}/source/css/syntax.css">
-
+    <link href="//cdn.jsdelivr.net/npm/highlight.js@8.6.0/styles/github.min.css" rel="stylesheet">
 
     <link href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -33,7 +33,18 @@
     <script src="//cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
     <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <!-- jQuery -->
+    <script src="//cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/bootstrap@3.3.2/dist/js/bootstrap.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="${theme_base!}/source/js/hux-blog.min.js"></script>
+    <script src="${theme_base!}/source/js/layer/layer.js"></script>
+    <!-- Service Worker -->
+    <script src="${theme_base!}/source/js/snackbar.js"></script>
+    <script src="${theme_base!}/source/js/sw-registration.js"></script>
+    <script src="${theme_base!}/source/js/archive.js"></script>
+    <!-- async load function -->
     <style>
         @font-face{
             font-family:bili;

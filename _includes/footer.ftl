@@ -77,7 +77,7 @@
                     </#if>
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; ${options.blog_title!} ${(options.birthday)?number_to_date?string("yyyy")} 
+                    Copyright &copy; ${options.blog_title!} ${(options.birthday)?number_to_date?string("yyyy")}
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a> |
                     Published with <a href="https://halo.run" target="_blank">Halo</a><br>
@@ -87,17 +87,7 @@
         </div>
     </div>
 </footer>
-<!-- jQuery -->
-<script src="//cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
-<!-- Bootstrap Core JavaScript -->
-<script src="//cdn.jsdelivr.net/npm/bootstrap@3.3.2/dist/js/bootstrap.min.js"></script>
-<!-- Custom Theme JavaScript -->
-<script src="${theme_base!}/source/js/hux-blog.min.js"></script>
-<!-- Service Worker -->
-<script src="${theme_base!}/source/js/snackbar.js"></script>
-<script src="${theme_base!}/source/js/sw-registration.js"></script>
-<script src="${theme_base!}/source/js/archive.js"></script>
-<!-- async load function -->
+
 <script>
     function async(u, c) {
         var d = document, t = 'script',
@@ -126,7 +116,7 @@
         hljs.initHighlightingOnLoad();
     })
 </script>
-<link href="//cdn.jsdelivr.net/npm/highlight.js@8.6.0/styles/github.min.css" rel="stylesheet">
+
 <!-- jquery.tagcloud.js -->
 <script>
     // only load tagcloud.js in tag.html
@@ -180,7 +170,7 @@
                     $(selector).append(l);
                 });
             }
-            
+
             return true;
         }
 
