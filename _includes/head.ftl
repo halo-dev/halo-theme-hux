@@ -11,16 +11,16 @@
     <title>${title}</title>
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@3.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${theme_base!}/source/lib/bootstrap/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="${theme_base!}/source/css/hux-blog.min.css">
 
     <!-- Pygments Github CSS -->
     <link rel="stylesheet" href="${theme_base!}/source/css/syntax.css">
-    <link href="//cdn.jsdelivr.net/npm/highlight.js@8.6.0/styles/github.min.css" rel="stylesheet">
+    <link href="${theme_base!}/source/lib/highlight.js/github.min.css" rel="stylesheet">
 
-    <link href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="${theme_base!}/source/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 
     <link href='//fonts.loli.net/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -34,9 +34,9 @@
     <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <!-- jQuery -->
-    <script src="//cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+    <script src="${theme_base!}/source/lib/jquery/jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="//cdn.jsdelivr.net/npm/bootstrap@3.3.2/dist/js/bootstrap.min.js"></script>
+    <script src="${theme_base!}/source/lib/bootstrap/js/bootstrap.min.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="${theme_base!}/source/js/hux-blog.min.js"></script>
     <script src="${theme_base!}/source/js/layer/layer.js"></script>

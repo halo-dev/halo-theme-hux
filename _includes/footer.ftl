@@ -112,7 +112,7 @@
      - https://help.github.com/articles/creating-and-highlighting-code-blocks/
 -->
 <script>
-    async("//cdn.jsdelivr.net/npm/highlight.js@8.6.0/lib/highlight.min.js", function(){
+    async("${theme_base!}/source/lib/highlight.js/highlight.min.js", function(){
         hljs.initHighlightingOnLoad();
     })
 </script>
@@ -132,7 +132,7 @@
 </script>
 <!--fastClick.js -->
 <script>
-    async("//cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function () {
+    async("${theme_base!}/source/lib/fastclick/fastclick.min.js", function () {
         var $nav = document.querySelector("nav");
         if ($nav) FastClick.attach($nav);
     })
