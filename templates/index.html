@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+    th:replace="~{_includes/layout :: html(title = ${site.title}, content = ~{::content})}">
+<th:block th:fragment="content">
+    <th:block
+        th:replace="~{module/page :: page(title=${site.title},pagetitle=${site.title},cover=@{/assets/img/home-bg.jpg},slogn=${site.subtitle})}">
+    </th:block>
+
+    <!-- <#list posts.content as post>
+        <div class="post-preview">
+            <a href="${post.fullPath!}">
+                <h2 class="post-title">
+                    ${post.title!}
+                </h2>
+                <div class="post-content-preview">
+                    ${post.summary}
+                </div>
+            </a>
+            <p class="post-meta">
+                Posted by ${user.nickname!} on ${post.createTime?string("MM-dd，yyyy")}
+            </p>
+        </div>
+        <hr>
+    </#list>
+    <#if posts.totalPages gt 1>
+        <ul class="pager">
+            <@paginationTag method="index" page="${posts.number}" total="${posts.totalPages}" display="0">
+                <#if pagination.hasPrev>
+                    <li class="previous">
+                        <a href="${pagination.prevPageFullPath!}">&larr; Newer Posts</a>
+                    </li>
+                </#if>
+                <#if pagination.hasNext>
+                    <li class="next">
+                        <a href="${pagination.nextPageFullPath!}">Older Posts &rarr;</a>
+                    </li>
+                </#if>
+            </@paginationTag>
+        </ul>
+    </#if>
+    </@page> -->
+
+</th:block>
+
+</html>
