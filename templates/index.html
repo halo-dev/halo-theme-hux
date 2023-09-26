@@ -5,41 +5,161 @@
     <th:block
         th:replace="~{module/page :: page(title=${site.title},pagetitle=${site.title},cover=@{/assets/img/home-bg.jpg},slogn=${site.subtitle})}">
     </th:block>
-
-    <!-- <#list posts.content as post>
-        <div class="post-preview">
-            <a href="${post.fullPath!}">
-                <h2 class="post-title">
-                    ${post.title!}
-                </h2>
-                <div class="post-content-preview">
-                    ${post.summary}
+    <div class="container">
+        <div class="row">
+            <div th:if="${theme.config.style.sidebar}" class="
+                            col-lg-8 col-lg-offset-1
+                            col-md-8 col-md-offset-1
+                            col-sm-12
+                            col-xs-12
+                            post-container
+                        ">
+                <th:block th:each="post : ${posts.items}">
+                    <div class="post-preview">
+                        <a th:href="${post.status.permalink}">
+                            <h2 class="post-title" th:text="${post.spec.title}">
+                            </h2>
+                            <div class="post-content-preview" th:utext="${post.status.excerpt}">
+                            </div>
+                        </a>
+                        <p class="post-meta"
+                            th:text="|Posted by ${post.spec.owner} on ${#dates.format(post.metadata.creationTimestamp,'MM-dd，yyyy')}|">
+                        </p>
+                    </div>
+                    <hr>
+                </th:block>
+                <ul class="pager" th:if="${posts.hasPrevious() || posts.hasNext()}">
+                    <li class="previous" th:if="${posts.hasPrevious()}">
+                        <a th:href="@{${posts.prevUrl}}">&larr; Newer Posts</a>
+                    </li>
+                    <li class="next" th:if="${posts.hasNext()}">
+                        <a th:href="@{${posts.nextUrl}}">Older Posts &rarr;</a>
+                    </li>
+                </ul>
+            </div>
+            <div th:unless="${theme.config.style.sidebar}">
+                <th:block th:each="post : ${posts.items}">
+                    <div class="post-preview">
+                        <a th:href="${post.status.permalink}">
+                            <h2 class="post-title" th:text="${post.spec.title}">
+                            </h2>
+                            <div class="post-content-preview" th:utext="${post.status.excerpt}">
+                            </div>
+                        </a>
+                        <p class="post-meta"
+                            th:text="|Posted by ${post.spec.owner} on ${#dates.format(post.metadata.creationTimestamp,'MM-dd，yyyy')}|">
+                        </p>
+                    </div>
+                    <hr>
+                </th:block>
+                <ul class="pager" th:if="${posts.hasPrevious() || posts.hasNext()}">
+                    <li class="previous" th:if="${posts.hasPrevious()}">
+                        <a th:href="@{${posts.prevUrl}}">&larr; Newer Posts</a>
+                    </li>
+                    <li class="next" th:if="${posts.hasNext()}">
+                        <a th:href="@{${posts.nextUrl}}">Older Posts &rarr;</a>
+                    </li>
+                </ul>
+            </div>
+            <th:block th:if="${theme.config.style.sidebar}">
+                <div class="
+                                col-lg-3 col-lg-offset-0
+                                col-md-3 col-md-offset-0
+                                col-sm-12
+                                col-xs-12
+                                sidebar-container
+                            ">
+                    <section th:if="${theme.config.style.sidebar_tags}">
+                        <hr class="hidden-sm hidden-xs">
+                        <h5><a href="/tags">FEATURED TAGS</a></h5>
+                        <div class="tags" th:with="tags = ${tagFinder.list(1,10)}">
+                            <a th:each="tag : ${tags.items}" th:href="${tag.status.permalink}"
+                                th:title="${tag.spec.displayName}" th:text="${tag.spec.displayName}" rel="">
+                            </a>
+                        </div>
+                    </section>
+                    <!-- Short About -->
+                    <section class="visible-md visible-lg">
+                        <hr>
+                        <h5><a href="/about">ABOUT ME</a></h5>
+                        <div class="short-about">
+                            <th:block th:if="${site.logo}">
+                                <img th:src="${site.logo}">
+                            </th:block>
+                            <th:block th:unless="${site.logo}">
+                                <img src="//cn.gravatar.com/avatar/34be3c7c0655313619d9b91a7e6f1ee6?s=256&amp;d=mm">
+                            </th:block>
+                            <p></p>
+                            <!-- SNS Link -->
+                            <ul class="list-inline" th:if="${theme.config.style.sidebar_links}">
+                                <th:block th:if="${theme.config.sns.twitter}">
+                                    <li>
+                                        <a th:href="${theme.config.sns.twitter}" title="twitter">
+                                            <span class="fa-stack fa-lg">
+                                                <i class="fa fa-circle fa-stack-2x"></i>
+                                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                </th:block>
+                                <th:block th:if="${theme.config.sns.zhihu}">
+                                    <li>
+                                        <a target="_blank" th:href="${theme.config.sns.zhihu}" title="zhihu">
+                                            <span class="fa-stack fa-lg">
+                                                <i class="fa fa-circle fa-stack-2x"></i>
+                                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                </th:block>
+                                <th:block th:if="${theme.config.sns.weibo}">
+                                    <li>
+                                        <a target="_blank" th:href="${theme.config.sns.weibo}" title="weibo">
+                                            <span class="fa-stack fa-lg">
+                                                <i class="fa fa-circle fa-stack-2x"></i>
+                                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                </th:block>
+                                <th:block th:if="${theme.config.sns.facebook}">
+                                    <li>
+                                        <a target="_blank" th:href="${theme.config.sns.facebook}" title="FaceBook">
+                                            <span class="fa-stack fa-lg">
+                                                <i class="fa fa-circle fa-stack-2x"></i>
+                                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                </th:block>
+                                <th:block th:if="${theme.config.sns.github}">
+                                    <li>
+                                        <a target="_blank" th:href="${theme.config.sns.github}" title="Github">
+                                            <span class="fa-stack fa-lg">
+                                                <i class="fa fa-circle fa-stack-2x"></i>
+                                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                </th:block>
+                                <th:block th:if="${theme.config.sns.bilibili}">
+                                    <li>
+                                        <a target="_blank" th:href="${theme.config.sns.bilibili}" title="bilibili">
+                                            <span class="fa-stack fa-lg">
+                                                <i class="fa fa-circle fa-stack-2x"></i>
+                                                <i class="fa fa-stack-1x fa-width-90 biliFont fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                </th:block>
+                            </ul>
+                        </div>
+                    </section>
                 </div>
-            </a>
-            <p class="post-meta">
-                Posted by ${user.nickname!} on ${post.createTime?string("MM-dd，yyyy")}
-            </p>
-        </div>
-        <hr>
-    </#list>
-    <#if posts.totalPages gt 1>
-        <ul class="pager">
-            <@paginationTag method="index" page="${posts.number}" total="${posts.totalPages}" display="0">
-                <#if pagination.hasPrev>
-                    <li class="previous">
-                        <a href="${pagination.prevPageFullPath!}">&larr; Newer Posts</a>
-                    </li>
-                </#if>
-                <#if pagination.hasNext>
-                    <li class="next">
-                        <a href="${pagination.nextPageFullPath!}">Older Posts &rarr;</a>
-                    </li>
-                </#if>
-            </@paginationTag>
-        </ul>
-    </#if>
-    </@page> -->
+            </th:block>
 
+        </div>
+    </div>
 </th:block>
 
 </html>
