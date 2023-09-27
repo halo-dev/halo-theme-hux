@@ -2,7 +2,26 @@
 <html xmlns:th="https://www.thymeleaf.org"
     th:replace="~{_includes/layout :: html(title = | ${post.spec.title} -  ${site.title}|, content = ~{::content})}">
 <th:block th:fragment="content">
-    <header class="intro-header">
+    <header class="intro-header" th:if="${post.spec.cover != ''}"
+        th:style="|background-image: url('${post.spec.cover}')|">
+        <div class=" container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <div class="tags">
+                            <a class="tag" th:each="tag : ${post.tags}" th:href="${tag.status.permalink}"
+                                th:title="${tag.spec.displayName}" th:text="${tag.spec.displayName}"></a>
+                        </div>
+                        <h1 th:id="${post.spec.title}" th:text="${post.spec.title}"></h1>
+                        <span class="meta"
+                            th:text="${#dates.format(post.metadata.creationTimestamp,'MM-dd，yyyy')}"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <header class="intro-header" th:unless="${post.spec.cover != ''}"
+        th:style="|background-image: url('@{/assets/img/home-bg.jpg}')|">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -19,8 +38,6 @@
             </div>
         </div>
     </header>
-
-
     <!-- Post Content -->
     <article>
         <div class="container">
@@ -31,32 +48,25 @@
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
                 post-container">
-
-                    ${post.formatContent!}
-
+                    <th:block th:utext="${post.status.excerpt}"></th:block>
                     <hr>
-
-                    <!-- 多说 Share start -->
-
-
-                    <ul class="pager">
-                        <#if prevPost??>
-                            <li class="previous">
-                                <a href="${prevPost.fullPath!}" data-toggle="tooltip" data-placement="top"
-                                    title="${prevPost.title}">&larr; Previous Post</a>
-                            </li>
-                        </#if>
-                        <#if nextPost??>
-                            <li class="next">
-                                <a href="${nextPost.fullPath!}" data-toggle="tooltip" data-placement="top"
-                                    title="${nextPost.title}">Next Post &rarr;</a>
-                            </li>
-                        </#if>
+                    <ul class="pager" th:with="postCursor = ${postFinder.cursor(post.metadata.name)}">
+                        <li class="previous" th:if="${postCursor.hasPrevious()}">
+                            <a th:href="@{${postCursor.previous.status.permalink}}" data-toggle="tooltip"
+                                data-placement="top" th:title="${postCursor.previous.spec.title}">&larr; Previous
+                                Post</a>
+                        </li>
+                        <li class="next" th:if="${postCursor.hasNext()}">
+                            <a th:href="@{${postCursor.next.status.permalink}}" th:title="${postCursor.next.spec.title}"
+                                data-toggle="tooltip" data-placement="top">Next Post
+                                &rarr;</a>
+                        </li>
                     </ul>
 
                     <div class="comment">
-                        <#include "module/comment.ftl">
-                            <@comment post=post type="post" />
+                        <!-- /templates/post.html -->
+                        <halo:comment group="content.halo.run" kind="Post" th:attr="name=${post.metadata.name}"
+                            colorScheme="'light'" />
                     </div>
                 </div>
                 <div class="
@@ -77,41 +87,15 @@
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
                 sidebar-container">
-
-                    <!-- Featured Tags -->
-                    <#if settings.sidebar_tags!true>
-                        <section>
-                            <hr class="hidden-sm hidden-xs">
-                            <h5><a href="${tags_url!}">FEATURED TAGS</a></h5>
-                            <div class="tags">
-                                <@tagTag method="list">
-                                    <#if tags?? && tags?size gt 0>
-                                        <#list tags as tag>
-                                            <a href="${tags_url!}?tag=${tag.slug!}" title="${tag.name}" rel="">
-                                                ${tag.name}
-                                            </a>
-                                        </#list>
-                                    </#if>
-                                </@tagTag>
-                            </div>
-                        </section>
-                    </#if>
-
-                    <!-- Friends Blog -->
-                    <#if settings.sidebar_links!true>
-                        <hr>
-                        <h5>FRIENDS</h5>
-                        <ul class="list-inline">
-                            <@linkTag method="list">
-                                <#if links?? && links?size gt 0>
-                                    <#list links as link>
-                                        <li><a href="${link.url}" target="_blank"
-                                                title="${link.description}">${link.name}</a></li>
-                                    </#list>
-                                </#if>
-                            </@linkTag>
-                        </ul>
-                    </#if>
+                    <section th:if="${theme.config.style.sidebar_tags}">
+                        <hr class="hidden-sm hidden-xs">
+                        <h5><a href="/tags">FEATURED TAGS</a></h5>
+                        <div class="tags" th:with="tags = ${tagFinder.list(1,10)}">
+                            <a th:each="tag : ${tags.items}" th:href="${tag.status.permalink}"
+                                th:title="${tag.spec.displayName}" th:text="${tag.spec.displayName}" rel="">
+                            </a>
+                        </div>
+                    </section>
                 </div>
             </div>
         </div>
@@ -158,7 +142,6 @@
             }
         }
     </style>
-    </@default>
 
 </th:block>
 
