@@ -8,8 +8,8 @@ spec:
   website: https://github.com/halo-dev/halo-theme-hux
   repo: https://github.com/halo-dev/halo-theme-hux
   settingName: theme-hux-setting
-  configMapName: theme-hux-config
-  version: 1.0.1
-  require: "2.0.0"
+  configMapName: theme-hux-configMap
+  version: 2.0.0
+  require: ">=2.0.0"
 metadata:
   name: halo-theme-hux
