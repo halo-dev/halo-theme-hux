@@ -1,148 +1,173 @@
-<!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org"
-    th:replace="~{_includes/layout :: html(title = | ${post.spec.title} -  ${site.title}|, content = ~{::content})}">
-<th:block th:fragment="content">
-    <header class="intro-header" th:if="${post.spec.cover != ''}"
-        th:style="|background-image: url('${post.spec.cover}')|">
-        <div class=" container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="post-heading">
-                        <div class="tags">
-                            <a class="tag" th:each="tag : ${post.tags}" th:href="${tag.status.permalink}"
-                                th:title="${tag.spec.displayName}" th:text="${tag.spec.displayName}"></a>
-                        </div>
-                        <h1 th:id="${post.spec.title}" th:text="${post.spec.title}"></h1>
-                        <span class="meta"
-                            th:text="${#dates.format(post.metadata.creationTimestamp,'MM-dd，yyyy')}"></span>
-                    </div>
-                </div>
+<!doctype html>
+<html
+  xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{_includes/layout :: html(title = | ${post.spec.title} -  ${site.title}|, content = ~{::content})}"
+>
+  <th:block th:fragment="content">
+    <header
+      class="intro-header"
+      th:if="${post.spec.cover != ''}"
+      th:style="|background-image: url('${post.spec.cover}')|"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <div class="tags">
+                <a
+                  class="tag"
+                  th:each="tag : ${post.tags}"
+                  th:href="${tag.status.permalink}"
+                  th:title="${tag.spec.displayName}"
+                  th:text="${tag.spec.displayName}"
+                ></a>
+              </div>
+              <h1 th:id="${post.spec.title}" th:text="${post.spec.title}"></h1>
+              <span class="meta" th:text="${#dates.format(post.metadata.creationTimestamp,'MM-dd，yyyy')}"></span>
             </div>
+          </div>
         </div>
+      </div>
     </header>
-    <header class="intro-header" th:unless="${post.spec.cover != ''}"
-        th:style="|background-image: url('@{/assets/img/home-bg.jpg}')|">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="post-heading">
-                        <div class="tags">
-                            <a class="tag" th:each="tag : ${post.tags}" th:href="${tag.status.permalink}"
-                                th:title="${tag.spec.displayName}" th:text="${tag.spec.displayName}"></a>
-                        </div>
-                        <h1 th:id="${post.spec.title}" th:text="${post.spec.title}"></h1>
-                        <span class="meta"
-                            th:text="${#dates.format(post.metadata.creationTimestamp,'MM-dd，yyyy')}"></span>
-                    </div>
-                </div>
+    <header
+      class="intro-header"
+      th:unless="${post.spec.cover != ''}"
+      th:style="|background-image: url('@{/assets/img/home-bg.jpg}')|"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <div class="tags">
+                <a
+                  class="tag"
+                  th:each="tag : ${post.tags}"
+                  th:href="${tag.status.permalink}"
+                  th:title="${tag.spec.displayName}"
+                  th:text="${tag.spec.displayName}"
+                ></a>
+              </div>
+              <h1 th:id="${post.spec.title}" th:text="${post.spec.title}"></h1>
+              <span class="meta" th:text="${#dates.format(post.metadata.creationTimestamp,'MM-dd，yyyy')}"></span>
             </div>
+          </div>
         </div>
+      </div>
     </header>
     <!-- Post Content -->
     <article>
-        <div class="container">
-            <div class="row">
+      <div class="container">
+        <div class="row">
+          <!-- Post Container -->
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
+            <th:block th:utext="${post.status.excerpt}"></th:block>
+            <hr />
+            <ul class="pager" th:with="postCursor = ${postFinder.cursor(post.metadata.name)}">
+              <li class="previous" th:if="${postCursor.hasPrevious()}">
+                <a
+                  th:href="@{${postCursor.previous.status.permalink}}"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  th:title="${postCursor.previous.spec.title}"
+                  >&larr; Previous Post</a
+                >
+              </li>
+              <li class="next" th:if="${postCursor.hasNext()}">
+                <a
+                  th:href="@{${postCursor.next.status.permalink}}"
+                  th:title="${postCursor.next.spec.title}"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  >Next Post &rarr;</a
+                >
+              </li>
+            </ul>
 
-                <!-- Post Container -->
-                <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
-                    <th:block th:utext="${post.status.excerpt}"></th:block>
-                    <hr>
-                    <ul class="pager" th:with="postCursor = ${postFinder.cursor(post.metadata.name)}">
-                        <li class="previous" th:if="${postCursor.hasPrevious()}">
-                            <a th:href="@{${postCursor.previous.status.permalink}}" data-toggle="tooltip"
-                                data-placement="top" th:title="${postCursor.previous.spec.title}">&larr; Previous
-                                Post</a>
-                        </li>
-                        <li class="next" th:if="${postCursor.hasNext()}">
-                            <a th:href="@{${postCursor.next.status.permalink}}" th:title="${postCursor.next.spec.title}"
-                                data-toggle="tooltip" data-placement="top">Next Post
-                                &rarr;</a>
-                        </li>
-                    </ul>
-
-                    <div class="comment">
-                        <!-- /templates/post.html -->
-                        <halo:comment group="content.halo.run" kind="Post" th:attr="name=${post.metadata.name}"
-                            colorScheme="'light'" />
-                    </div>
-                </div>
-                <div class="
-                col-lg-2 col-lg-offset-0
-                visible-lg-block
-                sidebar-container
-                catalog-container">
-                    <div class="side-catalog">
-                        <hr class="hidden-sm hidden-xs">
-                        <h5>
-                            <a class="catalog-toggle" href="#">CATALOG</a>
-                        </h5>
-                        <ul class="catalog-body"></ul>
-                    </div>
-                </div>
-                <!-- Sidebar Container -->
-                <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-                    <section th:if="${theme.config.style.sidebar_tags}">
-                        <hr class="hidden-sm hidden-xs">
-                        <h5><a href="/tags">FEATURED TAGS</a></h5>
-                        <div class="tags" th:with="tags = ${tagFinder.list(1,10)}">
-                            <a th:each="tag : ${tags.items}" th:href="${tag.status.permalink}"
-                                th:title="${tag.spec.displayName}" th:text="${tag.spec.displayName}" rel="">
-                            </a>
-                        </div>
-                    </section>
-                </div>
+            <div class="comment">
+              <!-- /templates/post.html -->
+              <halo:comment
+                group="content.halo.run"
+                kind="Post"
+                th:attr="name=${post.metadata.name}"
+                colorScheme="'light'"
+              />
             </div>
+          </div>
+          <div class="col-lg-2 col-lg-offset-0 visible-lg-block sidebar-container catalog-container">
+            <div class="side-catalog">
+              <hr class="hidden-sm hidden-xs" />
+              <h5>
+                <a class="catalog-toggle" href="#">CATALOG</a>
+              </h5>
+              <ul class="catalog-body"></ul>
+            </div>
+          </div>
+          <!-- Sidebar Container -->
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 sidebar-container">
+            <section th:if="${theme.config.style.sidebar_tags}">
+              <hr class="hidden-sm hidden-xs" />
+              <h5><a href="/tags">FEATURED TAGS</a></h5>
+              <div class="tags" th:with="tags = ${tagFinder.list(1,10)}">
+                <a
+                  th:each="tag : ${tags.items}"
+                  th:href="${tag.status.permalink}"
+                  th:title="${tag.spec.displayName}"
+                  th:text="${tag.spec.displayName}"
+                  rel=""
+                >
+                </a>
+              </div>
+            </section>
+          </div>
         </div>
+      </div>
     </article>
     <!-- async load function -->
     <script>
-        function async(u, c) {
-            var d = document, t = 'script',
-                o = d.createElement(t),
-                s = d.getElementsByTagName(t)[0];
-            o.src = u;
-            if (c) {
-                o.addEventListener('load', function (e) {
-                    c(null, e);
-                }, false);
-            }
-            s.parentNode.insertBefore(o, s);
+      function async(u, c) {
+        var d = document,
+          t = "script",
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+          o.addEventListener(
+            "load",
+            function (e) {
+              c(null, e);
+            },
+            false,
+          );
         }
+        s.parentNode.insertBefore(o, s);
+      }
     </script>
     <!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
     <script>
-        layer.photos({
-            photos: '.post-container',
-            shade: 0.6,
-            maxmin: true
-        });
-        async("//cdnjs.loli.net/ajax/libs/anchor-js/1.1.1/anchor.min.js", function () {
-            anchors.options = {
-                visible: 'always',
-                placement: 'right',
-                icon: '#'
-            };
-            anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
-        })
+      layer.photos({
+        photos: ".post-container",
+        shade: 0.6,
+        maxmin: true,
+      });
+      async("//cdnjs.loli.net/ajax/libs/anchor-js/1.1.1/anchor.min.js", function () {
+        anchors.options = {
+          visible: "always",
+          placement: "right",
+          icon: "#",
+        };
+        anchors.add().remove(".intro-header h1").remove(".subheading").remove(".sidebar-container h5");
+      });
     </script>
     <style>
-        /* place left on bigger screen */
-        @media all and (min-width: 800px) {
-            .anchorjs-link {
-                position: absolute;
-                left: -0.75em;
-                font-size: 1.1em;
-                margin-top: -0.1em;
-            }
+      /* place left on bigger screen */
+      @media all and (min-width: 800px) {
+        .anchorjs-link {
+          position: absolute;
+          left: -0.75em;
+          font-size: 1.1em;
+          margin-top: -0.1em;
         }
+      }
     </style>
-
-</th:block>
-
+  </th:block>
 </html>

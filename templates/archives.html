@@ -1,74 +1,72 @@
-<!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org"
-    th:replace="~{_includes/layout :: html(title = | 归档 -  ${site.title}|, content = ~{::content})}">
-<th:block th:fragment="content">
+<!doctype html>
+<html
+  xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{_includes/layout :: html(title = | 归档 -  ${site.title}|, content = ~{::content})}"
+>
+  <th:block th:fragment="content">
     <!-- Page Header -->
     <th:block th:if="${theme.config.general.archives_cover != null}">
-        <header class="intro-header" th:style="|background-image: url('${theme.config.general.archives_cover}')|">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                        <div class="site-heading" id="tag-heading">
-                            <h1>Archives</h1>
-                            <span class="subheading" th:text="${theme.config.general.archives_slogn}"></span>
-                        </div>
-                    </div>
-                </div>
+      <header class="intro-header" th:style="|background-image: url('${theme.config.general.archives_cover}')|">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <div class="site-heading" id="tag-heading">
+                <h1>Archives</h1>
+                <span class="subheading" th:text="${theme.config.general.archives_slogn}"></span>
+              </div>
             </div>
-        </header>
+          </div>
+        </div>
+      </header>
     </th:block>
     <th:block th:unless="${theme.config.general.archives_cover != null}">
-        <header class="intro-header" th:style="|background-image: url('@{/assets/img/tag-bg.jpg}')|">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                        <div class="site-heading" id="tag-heading">
-                            <h1>Archives</h1>
-                            <span class="subheading" th:text="${theme.config.general.archives_slogn}"></span>
-                        </div>
-                    </div>
-                </div>
+      <header class="intro-header" th:style="|background-image: url('@{/assets/img/tag-bg.jpg}')|">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <div class="site-heading" id="tag-heading">
+                <h1>Archives</h1>
+                <span class="subheading" th:text="${theme.config.general.archives_slogn}"></span>
+              </div>
             </div>
-        </header>
+          </div>
+        </div>
+      </header>
     </th:block>
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="mini-post-list js-result">
-                    <th:block th:each="archive : ${archives.items}">
-                        <section>
-                            <span class="fa listing-seperator">
-                                <span class="tag-text" th:text="${archive.year}">${archive.year?c}</span>
-                                <th:block th:each="month : ${archive.months}">
-                                    <th:block th:each="post : ${month.posts}">
-                                        <div class="post-preview item">
-                                            <a th:href="${post.status.permalink}">
-                                                <h2 class="post-title" th:text="${post.spec.title}">
-                                                    ${post.title!}
-                                                </h2>
-                                            </a>
-                                            <hr>
-                                        </div>
-                                    </th:block>
-                                </th:block>
-
-                        </section>
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <div class="mini-post-list js-result">
+            <th:block th:each="archive : ${archives.items}">
+              <section>
+                <span class="fa listing-seperator">
+                  <span class="tag-text" th:text="${archive.year}">${archive.year?c}</span>
+                  <th:block th:each="month : ${archive.months}">
+                    <th:block th:each="post : ${month.posts}">
+                      <div class="post-preview item">
+                        <a th:href="${post.status.permalink}">
+                          <h2 class="post-title" th:text="${post.spec.title}">${post.title!}</h2>
+                        </a>
+                        <hr />
+                      </div>
                     </th:block>
-                </div>
-            </div>
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="pager" th:if="${archives.hasPrevious() || archives.hasNext()}">
-                    <li class="previous" th:if="${archives.hasPrevious()}">
-                        <a th:href="@{${archives.prevUrl}}">&larr; Newer ar</a>
-                    </li>
-                    <li class="next" th:if="${archives.hasNext()}">
-                        <a th:href="@{${archives.nextUrl}}">Older ar &rarr;</a>
-                    </li>
-                </ul>
-            </div>
+                  </th:block>
+                </span>
+              </section>
+            </th:block>
+          </div>
         </div>
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <ul class="pager" th:if="${archives.hasPrevious() || archives.hasNext()}">
+            <li class="previous" th:if="${archives.hasPrevious()}">
+              <a th:href="@{${archives.prevUrl}}">&larr; Newer ar</a>
+            </li>
+            <li class="next" th:if="${archives.hasNext()}">
+              <a th:href="@{${archives.nextUrl}}">Older ar &rarr;</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-
-</th:block>
-
+  </th:block>
 </html>

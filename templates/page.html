@@ -1,22 +1,25 @@
-<!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org"
-    th:replace="~{_includes/layout :: html(title = | ${singlePage.spec.title} -  ${site.title}|, content = ~{::content})}">
-<th:block th:fragment="content">
+<!doctype html>
+<html
+  xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{_includes/layout :: html(title = | ${singlePage.spec.title} -  ${site.title}|, content = ~{::content})}"
+>
+  <th:block th:fragment="content">
     <th:block th:if="${singlePage.spec.cover != ''}">
-        <th:block
-            th:replace="~{module/page :: page(title=| ${singlePage.spec.title} -  ${site.title}| ,pagetitle = ${singlePage.spec.title},slogn=${theme.config.general.tags_slogn},cover=${singlePage.spec.cover})}">
-        </th:block>
+      <th:block
+        th:replace="~{module/page :: page(title=| ${singlePage.spec.title} -  ${site.title}| ,pagetitle = ${singlePage.spec.title},slogn=${theme.config.general.tags_slogn},cover=${singlePage.spec.cover})}"
+      >
+      </th:block>
     </th:block>
     <th:block th:unless="${singlePage.spec.cover !=''}">
-        <th:block
-            th:replace="~{module/page :: page(title=| ${singlePage.spec.title} -  ${site.title}| ,pagetitle = ${singlePage.spec.title},slogn=${theme.config.general.tags_slogn},cover=@{/assets/img/home-bg.jpg})}">
-        </th:block>
+      <th:block
+        th:replace="~{module/page :: page(title=| ${singlePage.spec.title} -  ${site.title}| ,pagetitle = ${singlePage.spec.title},slogn=${theme.config.general.tags_slogn},cover=@{/assets/img/home-bg.jpg})}"
+      >
+      </th:block>
     </th:block>
     <div class="container">
-        <div class="row">
-            <th:block th:utext="${singlePage.content.content}"></th:block>
-        </div>
+      <div class="row">
+        <th:block th:utext="${singlePage.content.content}"></th:block>
+      </div>
     </div>
-</th:block>
-
+  </th:block>
 </html>
