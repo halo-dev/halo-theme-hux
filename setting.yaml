@@ -1,0 +1,81 @@
+apiVersion: v1alpha1
+kind: Setting
+metadata:
+  name: theme-hux-setting
+spec:
+  forms:
+    - group: general
+      label: 基础设置
+      formSchema:
+        - $formkit: text
+          name: index_slogn
+          label: 首页描述
+        - $formkit: text
+          name: tags_slogn
+          label: 标签页描述
+        - $formkit: text
+          name: archives_slogn
+          label: 归档页描述
+        - $formkit: attachment
+          name: index_cover
+          label: 首页顶部图
+        - $formkit: attachment
+          name: tags_cover
+          label: 标签页顶部图
+        - $formkit: attachment
+          name: archives_cover
+          label: 归档页顶部图
+        - $formkit: textarea
+          name: notice
+          label: 公告
+    - group: sns
+      label: 社交设置
+      formSchema:
+        - $formkit: text
+          name: weibo
+          label: 微博
+        - $formkit: text
+          name: zhihu
+          label: 知乎
+        - $formkit: text
+          name: github
+          label: Github
+        - $formkit: text
+          name: twitter
+          label: Twitter
+        - $formkit: text
+          name: facebook
+          label: Facebook
+        - $formkit: text
+          name: bilibili
+          label: BiliBili
+    - group: style
+      label: 样式设置
+      formSchema:
+        - $formkit: radio
+          name: sidebar
+          label: 侧边栏
+          value: true
+          options:
+            - value: true
+              label: 显示
+            - value: false
+              label: 隐藏
+        - $formkit: radio
+          name: sidebar_tags
+          label: 侧边栏标签
+          value: true
+          options:
+            - value: true
+              label: 显示
+            - value: false
+              label: 隐藏
+        - $formkit: radio
+          name: sidebar_links
+          label: 侧边栏友链
+          value: true
+          options:
+            - value: true
+              label: 显示
+            - value: false
+              label: 隐藏

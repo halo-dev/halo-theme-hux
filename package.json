@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "prettier": "prettier --write './templates/**/*.html'"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.3"
+  }
+}

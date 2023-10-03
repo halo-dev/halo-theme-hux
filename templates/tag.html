@@ -1,0 +1,81 @@
+<!doctype html>
+<html
+  xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{_includes/layout :: html(title = | 标签:${tag.spec.displayName} -  ${site.title}|, content = ~{::content})}"
+>
+  <th:block th:fragment="content">
+    <th:block th:if="${theme.config.general.tags_cover != null}">
+      <header class="intro-header" th:style="|background-image: url('${theme.config.general.tags_cover}')|">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <div class="site-heading" id="tag-heading">
+                <h1>Tags</h1>
+                <span class="subheading" th:text="${theme.config.general.tags_slogn}"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    </th:block>
+    <th:block th:unless="${theme.config.general.tags_cover != null}">
+      <header class="intro-header" th:style="|background-image: url('@{/assets/img/tag-bg.jpg}')|">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <div class="site-heading" id="tag-heading">
+                <h1>Tags</h1>
+                <span class="subheading" th:text="${theme.config.general.tags_slogn}"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    </th:block>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <!-- 标签云 -->
+          <div id="tag_cloud" class="tags tags-sup js-tags" th:with="tags = ${tagFinder.listAll()}">
+            <a class="tag-button--all" data-encode="" href="/tags"> Show All </a>
+            <th:block th:each="tag : ${tags}">
+              <a
+                class="tag-button"
+                data-encode="${tag.slug}"
+                th:title="${tag.spec.displayName}"
+                rel="${tag.status.postCount}"
+                th:href="${tag.status.permalink}"
+              >
+                <th:block th:text="${tag.spec.displayName}"></th:block>
+                <sup th:text="${tag.status.visiblePostCount}"></sup>
+              </a>
+            </th:block>
+          </div>
+          <div class="mini-post-list js-result">
+            <th:block th:each="post : ${posts.items}">
+              <div class="post-preview">
+                <a th:href="${post.status.permalink}">
+                  <h2 class="post-title" th:text="${post.spec.title}"></h2>
+                  <div class="post-content-preview" th:utext="${post.status.excerpt}"></div>
+                </a>
+                <p
+                  class="post-meta"
+                  th:text="|Posted by ${post.spec.owner} on ${#dates.format(post.metadata.creationTimestamp,'MM-dd，yyyy')}|"
+                ></p>
+              </div>
+              <hr />
+            </th:block>
+            <ul class="pager" th:if="${posts.hasPrevious() || posts.hasNext()}">
+              <li class="previous" th:if="${posts.hasPrevious()}">
+                <a th:href="@{${posts.prevUrl}}">&larr; Newer Posts</a>
+              </li>
+              <li class="next" th:if="${posts.hasNext()}">
+                <a th:href="@{${posts.nextUrl}}">Older Posts &rarr;</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </th:block>
+</html>

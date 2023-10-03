@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en" th:fragment="html (title,content)">
+  <th:block th:replace="~{_includes/head :: head(${title})}"></th:block>
+  <!-- hack iOS CSS :active style -->
+
+  <body ontouchstart="">
+    <th:block th:replace="~{_includes/nav}"></th:block>
+    <th:block th:replace="${content}"></th:block>
+    <th:block th:replace="~{_includes/footer}"></th:block>
+    <img th:src="@{/assets/img/icon_wechat.png}" width="0" height="0" />
+  </body>
+</html>
